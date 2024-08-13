@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/white"
+    tools:context=".Menu">
+
+    <LinearLayout
+        android:backgroundTint="@color/white"
+        android:id="@+id/lnLy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498">
+
+        <TextView
+            android:id="@+id/Logo"
+            android:layout_width="match_parent"
+            android:layout_height="107dp"
+            android:fontFamily="@font/satisfy_regular"
+            android:text="Mi Diario."
+            android:textAlignment="center"
+            android:textSize="85sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="19sp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_light"
+            android:text="¡Bienvenido de vuelta!" />
+
+        <Button
+            android:id="@+id/btnNuevo"
+            android:layout_width="229dp"
+            android:layout_height="69dp"
+            android:layout_marginBottom="3dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_semibold"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="PÁGINA NUEVA"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnTodo"
+            android:layout_width="wrap_content"
+            android:layout_height="69dp"
+            android:layout_marginBottom="3dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_semibold"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="TODAS MIS PÁGINAS"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnAjustes"
+            android:layout_width="226dp"
+            android:layout_height="69dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="AJUSTES"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="3dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/lnLy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Space
+        android:layout_width="3dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lnLy" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

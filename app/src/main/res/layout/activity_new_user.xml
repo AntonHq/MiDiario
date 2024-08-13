@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/new_user"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".newUser">
+
+    <Space
+        android:layout_width="3dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lnLy" />
+
+    <Space
+        android:layout_width="3dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/lnLy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnAyuda"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/ayuda"
+        android:contentDescription="ayuda"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/lnLy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
+            android:fontFamily="@font/satisfy_regular"
+            android:text="Mi Diario."
+            android:textAlignment="center"
+            android:textSize="85sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:fontFamily="@font/poppins_light"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:text="¡Bienvenido!\nComencemos creando tu nueva cuenta." />
+
+
+
+        <EditText
+            android:id="@+id/txtUsuarior"
+            android:layout_width="349dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="10dp"
+            android:hint="Nombre de Usuario"
+            android:fontFamily="@font/roboto_regular" />
+
+        <EditText
+            android:id="@+id/txtCorreor"
+            android:layout_width="349dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Correo"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/txtContraseñar"
+            android:layout_width="349dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Contraseña"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/txtConfiContraseñar"
+            android:layout_width="349dp"
+            android:layout_height="48dp"
+            android:ems="10"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Confirmar Contraseña"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/lblErrorr"
+            android:layout_width="349dp"
+            android:layout_height="25dp"
+            android:layout_marginBottom="10dp"
+            android:padding="5dp"
+            android:textSize="13dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/error"
+            android:text="TextView" />
+
+
+
+        <Button
+            android:id="@+id/btnGuardar"
+            android:layout_width="349dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="Guardar"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

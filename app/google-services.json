@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "388855543174",
+    "project_id": "diario-personal-d538e",
+    "storage_bucket": "diario-personal-d538e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388855543174:android:55d9b65d1d9a444bd0e807",
+        "android_client_info": {
+          "package_name": "com.example.diariopersonal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388855543174-vgrdsvm8s495hm039r1dcq4cg896h5kg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.diariopersonal",
+            "certificate_hash": "8a30bec079cc98728d25225ec369751a2a66ea71"
+          }
+        },
+        {
+          "client_id": "388855543174-n9fdvn54gil6u98vljggru7c2eop000i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsmFFpcPRiCTcrjtiyoIvGGouSe_bIy8Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388855543174-n9fdvn54gil6u98vljggru7c2eop000i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

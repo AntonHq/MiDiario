@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DiarioPersonal</string>
+    <string name="default_web_client_id">388855543174-n9fdvn54gil6u98vljggru7c2eop000i.apps.googleusercontent.com</string>
+    <string name="cambiar_fuente">Cambiar fuente</string>
+</resources>
