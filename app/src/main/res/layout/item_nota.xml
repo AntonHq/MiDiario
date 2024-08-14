@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/rounded_edittext_background"
+    android:padding="12dp">
+
+    <!-- Título de la nota -->
+    <TextView
+        android:id="@+id/txtTituloNota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="8dp"
+        android:layout_toStartOf="@id/btnEditarNota"
+        android:text="Título de la Nota"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Fecha de la nota -->
+    <TextView
+        android:id="@+id/txtFechaNota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtTituloNota"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="4dp"
+        android:text="Fecha"
+        android:textColor="@color/colorSecondary"
+        android:textSize="14sp" />
+
+    <!-- Breve descripción del contenido -->
+    <TextView
+        android:id="@+id/txtContenidoNota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtFechaNota"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Contenido de la nota (breve)"
+        android:textColor="@color/colorSecondary"
+        android:textSize="14sp" />
+
+    <!-- Botón para editar la nota -->
+    <ImageButton
+        android:id="@+id/btnEditarNota"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Editar nota"
+        android:src="@android:drawable/ic_menu_edit" />
+
+    <!-- Botón para eliminar la nota -->
+    <ImageButton
+        android:id="@+id/btnEliminarNota"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@id/btnEditarNota"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Eliminar nota"
+        android:src="@android:drawable/ic_delete" />
+</RelativeLayout>
