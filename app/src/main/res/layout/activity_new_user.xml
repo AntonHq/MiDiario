@@ -83,7 +83,7 @@
                 android:textSize="15sp"
                 android:hint="Nombre de usuario"
                 android:textColor="#D3C7C7"
-                android:textColorHint="@color/colorOnSecondary"
+                android:textColorHint="@color/staticWhite"
                 />
 
             <EditText
@@ -97,7 +97,7 @@
                 android:textSize="15sp"
                 android:hint="Correo Electronico"
                 android:textColor="#D3C7C7"
-                android:textColorHint="@color/colorOnSecondary"
+                android:textColorHint="@color/staticWhite"
                 />
 
             <EditText
@@ -110,7 +110,7 @@
                 android:textSize="15sp"
                 android:hint="Contraseña"
                 android:textColor="#D3C7C7"
-                android:textColorHint="@color/colorOnSecondary"
+                android:textColorHint="@color/staticWhite"
                 />
 
 
@@ -124,7 +124,7 @@
                 android:textSize="15sp"
                 android:hint="Repetir contraseña"
                 android:textColor="#D3C7C7"
-                android:textColorHint="@color/colorOnSecondary"
+                android:textColorHint="@color/staticWhite"
                 />
 
             <TextView

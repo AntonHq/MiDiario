@@ -5,11 +5,10 @@
     android:id="@+id/menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/crema"
+    android:background="@color/background"
     tools:context=".Menu">
 
     <LinearLayout
-        android:backgroundTint="@color/crema"
         android:id="@+id/lnLy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="107dp"
             android:fontFamily="@font/satisfy_regular"
-            android:textColor="@color/colorSecondary"
+            android:textColor="@color/text"
             android:text="Mi Diario."
             android:textAlignment="center"
             android:textSize="85sp" />
@@ -44,10 +43,10 @@
             android:id="@+id/btnNuevo"
             android:layout_width="229dp"
             android:layout_height="69dp"
-            android:textColor="@color/crema"
+            android:textColor="@color/background"
             android:layout_marginBottom="3dp"
             android:fontFamily="@font/poppins_semibold"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/text"
             android:text="PÁGINA NUEVA"
             android:textSize="18sp" />
 
@@ -56,9 +55,9 @@
             android:layout_width="wrap_content"
             android:layout_height="69dp"
             android:layout_marginBottom="3dp"
-            android:textColor="@color/crema"
+            android:textColor="@color/text"
             android:fontFamily="@font/poppins_semibold"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/colorBtnSecundario"
             android:text="TODAS MIS PÁGINAS"
             android:textSize="18sp" />
 
@@ -66,9 +65,9 @@
             android:id="@+id/btnAjustes"
             android:layout_width="226dp"
             android:layout_height="69dp"
-            android:textColor="@color/crema"
+            android:textColor="@color/background"
             android:fontFamily="@font/poppins_semibold"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/text"
             android:text="AJUSTES"
             android:textSize="17sp" />
 

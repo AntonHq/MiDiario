@@ -65,7 +65,7 @@
             android:hint="Nombre"
             android:inputType="textEmailAddress"
             android:textColor="#D3C7C7"
-            android:textColorHint="@color/colorOnSecondary"
+            android:textColorHint="@color/staticWhite"
             android:textSize="15sp" />
 
 
@@ -78,7 +78,7 @@
             android:hint="Contraseña nueva"
             android:inputType="textPassword"
             android:textColor="#D3C7C7"
-            android:textColorHint="@color/colorOnSecondary"
+            android:textColorHint="@color/staticWhite"
             android:textSize="15sp" />
 
 
