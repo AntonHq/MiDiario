@@ -24,22 +24,24 @@
         android:id="@+id/scroll_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:fillViewport="true">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="40dp"
-            android:layout_marginVertical="110dp"
             android:layout_marginHorizontal="40dp"
+            android:layout_marginVertical="110dp"
             android:background="@drawable/ll_back_login"
             android:gravity="center"
+            android:orientation="vertical"
             android:paddingHorizontal="30dp"
-            android:orientation="vertical">
+            android:paddingVertical="40dp">
 
             <TextView
                 android:id="@+id/textView3"
@@ -56,9 +58,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Inicia sesión para continuar."
-                android:textSize="14sp"
                 android:textAlignment="center"
-                android:textColor="#DFD8BB" />
+                android:textColor="#DFD8BB"
+                android:textSize="14sp" />
 
 
             <EditText
@@ -68,12 +70,11 @@
                 android:layout_marginTop="20dp"
                 android:ems="10"
                 android:fontFamily="@font/roboto_light"
-                android:inputType="textEmailAddress"
-                android:textSize="15sp"
                 android:hint="Correo Electronico"
-                android:textColorHint="@color/colorHintCampos"
-                android:textColor="@color/colorText"
-                />
+                android:inputType="textEmailAddress"
+                android:textColor="#D3C7C7"
+                android:textColorHint="@color/colorOnSecondary"
+                android:textSize="15sp" />
 
 
             <EditText
@@ -82,12 +83,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/roboto_light"
-                android:inputType="textPassword"
-                android:textSize="15sp"
                 android:hint="Contraseña"
-                android:textColorHint="@color/colorHintCampos"
-                android:textColor="@color/colorText"
-                />
+                android:inputType="textPassword"
+                android:textColor="#D3C7C7"
+                android:textColorHint="@color/colorOnSecondary"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/lblError"
@@ -95,30 +95,30 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/roboto_medium"
-                android:textSize="14sp"
-                android:textColor="@color/error" />
+                android:textColor="#BD1D1D"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/btnIngresar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="17dp"
-                android:backgroundTint="#C5BD9C"
+                android:backgroundTint="@color/colorBtnPrincipal"
                 android:fontFamily="@font/roboto_medium"
-                android:textSize="13dp"
                 android:text="INGRESAR"
-                android:textColor="#1E1E1A" />
+                android:textColor="#1E1E1A"
+                android:textSize="13dp" />
 
             <Button
                 android:id="@+id/btnRegistrarse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:textSize="13dp"
                 android:backgroundTint="@color/colorBtnSecundario"
                 android:fontFamily="@font/roboto_medium"
                 android:text="REGISTRARSE"
-                android:textColor="#1E1E1A" />
+                android:textColor="#1E1E1A"
+                android:textSize="13dp" />
 
             <ImageButton
                 android:id="@+id/btnGoogle"
@@ -127,8 +127,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/google"
                 android:contentDescription="google"
-                android:scaleType="fitCenter"
-                />
+                android:scaleType="fitCenter" />
 
         </LinearLayout>
     </ScrollView>

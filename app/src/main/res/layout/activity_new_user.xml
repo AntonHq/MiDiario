@@ -82,8 +82,8 @@
                 android:inputType="text"
                 android:textSize="15sp"
                 android:hint="Nombre de usuario"
-                android:textColorHint="@color/colorHintCampos"
-                android:textColor="@color/colorText"
+                android:textColor="#D3C7C7"
+                android:textColorHint="@color/colorOnSecondary"
                 />
 
             <EditText
@@ -96,8 +96,8 @@
                 android:inputType="textEmailAddress"
                 android:textSize="15sp"
                 android:hint="Correo Electronico"
-                android:textColorHint="@color/colorHintCampos"
-                android:textColor="@color/colorText"
+                android:textColor="#D3C7C7"
+                android:textColorHint="@color/colorOnSecondary"
                 />
 
             <EditText
@@ -109,8 +109,8 @@
                 android:inputType="textPassword"
                 android:textSize="15sp"
                 android:hint="Contraseña"
-                android:textColorHint="@color/colorHintCampos"
-                android:textColor="@color/colorText"
+                android:textColor="#D3C7C7"
+                android:textColorHint="@color/colorOnSecondary"
                 />
 
 
@@ -123,8 +123,8 @@
                 android:inputType="textPassword"
                 android:textSize="15sp"
                 android:hint="Repetir contraseña"
-                android:textColorHint="@color/colorHintCampos"
-                android:textColor="@color/colorText"
+                android:textColor="#D3C7C7"
+                android:textColorHint="@color/colorOnSecondary"
                 />
 
             <TextView
@@ -134,7 +134,7 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/roboto_medium"
                 android:textSize="14sp"
-                android:textColor="@color/error" />
+                android:textColor="#BD1D1D" />
 
             <Button
                 android:id="@+id/btnGuardar"

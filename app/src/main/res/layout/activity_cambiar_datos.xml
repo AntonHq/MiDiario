@@ -7,92 +7,91 @@
     android:layout_height="match_parent"
     tools:context=".CambiarDatos">
 
-    <ImageButton
-        android:id="@+id/btnAyuda"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="36dp"
-        android:background="@drawable/ayuda"
-        android:contentDescription="ayuda"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/lnLy"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fondo2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498">
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginVertical="110dp"
+        android:background="@drawable/ll_back_login"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/Logo"
-            android:layout_width="336dp"
-            android:layout_height="78dp"
-            android:fontFamily="@font/satisfy_regular"
-            android:text="Ajustes."
-            android:textAlignment="center"
-            android:textSize="55sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
-            android:fontFamily="@font/poppins_light"
+            android:fontFamily="@font/satisfy_regular"
+            android:text="Cambiar datos"
+            android:textAlignment="center"
+            android:textColor="#DFD8BB"
+            android:textSize="48sp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
             android:text="Cambia tu nombre o contraseña."
-            android:textSize="17sp" />
+            android:textAlignment="center"
+            android:textColor="#DFD8BB"
+            android:textSize="14sp" />
+
 
         <EditText
-            android:id="@+id/txtCorreor"
-            android:layout_width="349dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="10dp"
+            android:id="@+id/txtNombrec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:ems="10"
-            android:fontFamily="@font/roboto_regular"
-            android:hint="Tu nombre"
-            android:inputType="text" />
+            android:fontFamily="@font/roboto_light"
+            android:hint="Nombre"
+            android:inputType="textEmailAddress"
+            android:textColor="#D3C7C7"
+            android:textColorHint="@color/colorOnSecondary"
+            android:textSize="15sp" />
+
 
         <EditText
-            android:id="@+id/txtContraseñar"
-            android:layout_width="349dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="20dp"
-            android:ems="10"
-            android:fontFamily="@font/roboto_regular"
-            android:hint="Tu contraseña"
-            android:inputType="textPassword" />
+            android:id="@+id/txtContraseñac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:fontFamily="@font/roboto_light"
+            android:hint="Contraseña nueva"
+            android:inputType="textPassword"
+            android:textColor="#D3C7C7"
+            android:textColorHint="@color/colorOnSecondary"
+            android:textSize="15sp" />
 
 
         <Button
-            android:id="@+id/btnGuardar"
-            android:layout_width="349dp"
+            android:id="@+id/btnGuardarc"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
-            android:backgroundTint="@color/colorPrimary"
-            android:text="Guardar cambios"
-            android:textSize="16sp" />
-
-        <Space
-            android:layout_width="3dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/lnLy"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Space
-            android:layout_width="3dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lnLy" />
+            android:layout_marginTop="25dp"
+            android:backgroundTint="#C5BD9C"
+            android:fontFamily="@font/roboto_medium"
+            android:text="GUARDAR CAMBIOS"
+            android:textColor="#1E1E1A"
+            android:textSize="13dp" />
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

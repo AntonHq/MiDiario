@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="colorPrimary">#45214A</color>
-    <color name="colorSecondary">#C1B8C2</color>
-    <color name="error">#E93434</color>
-    <color name="colorBackground">#2C2727</color>
-    <color name="colorHintCampos">#DFD8BB</color>
-    <color name="colorText">#AEA689</color>
     <color name="colorBtnPrincipal">#C5BD9C</color>
     <color name="colorBtnSecundario">#6B899D</color>
+
+    <color name="colorPrimary">#903B3B</color>
+    <color name="colorOnPrimary">#BD8C4C</color>
+    <color name="colorSecondary">#4D8A4F</color>
+    <color name="background">#BFB89A</color>
+    <color name="colorAccent">#1B1B16</color>
+    <color name="colorOnSecondary">#D1C9C9</color>
+
+    <color name="crema">#BFB89A</color>
+    <color name="crema_dark">#1B1B16</color>
+
+    <color name="rojo_dark">#572424</color>
+    <color name="amarillo_dark">#755327</color>
+    <color name="verde_dark">#1D311E</color>
+
 </resources>
