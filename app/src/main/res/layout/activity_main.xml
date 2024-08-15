@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="40dp"
-            android:layout_marginVertical="190dp"
+            android:layout_marginVertical="110dp"
             android:layout_marginHorizontal="40dp"
             android:background="@drawable/ll_back_login"
             android:gravity="center"
@@ -69,9 +69,11 @@
                 android:ems="10"
                 android:fontFamily="@font/roboto_light"
                 android:inputType="textEmailAddress"
-                android:text="Correo electrónico"
-                android:textColor="#DFD8BB"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:hint="Correo Electronico"
+                android:textColorHint="@color/colorHintCampos"
+                android:textColor="@color/colorText"
+                />
 
 
             <EditText
@@ -80,11 +82,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/roboto_light"
-                android:hint="Contraseña"
                 android:inputType="textPassword"
-                android:textColor="#DFD8BB"
-                android:textColorHint="#DFD8BB"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:hint="Contraseña"
+                android:textColorHint="@color/colorHintCampos"
+                android:textColor="@color/colorText"
+                />
 
             <TextView
                 android:id="@+id/lblError"
@@ -92,9 +95,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/roboto_medium"
-                android:text="Error al ingresar datos."
                 android:textSize="14sp"
-                android:textColor="#E93434" />
+                android:textColor="@color/error" />
 
             <Button
                 android:id="@+id/btnIngresar"
@@ -113,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:textSize="13dp"
-                android:backgroundTint="#6B899D"
+                android:backgroundTint="@color/colorBtnSecundario"
                 android:fontFamily="@font/roboto_medium"
                 android:text="REGISTRARSE"
                 android:textColor="#1E1E1A" />
@@ -129,7 +131,5 @@
                 />
 
         </LinearLayout>
-
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

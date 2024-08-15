@@ -4,6 +4,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#45214A</color>
     <color name="colorSecondary">#C1B8C2</color>
-    <color name="error">#A30000</color>
+    <color name="error">#E93434</color>
     <color name="colorBackground">#2C2727</color>
+    <color name="colorHintCampos">#DFD8BB</color>
+    <color name="colorText">#AEA689</color>
+    <color name="colorBtnPrincipal">#C5BD9C</color>
+    <color name="colorBtnSecundario">#6B899D</color>
 </resources>
