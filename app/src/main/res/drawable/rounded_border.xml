@@ -3,5 +3,5 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <solid android:color="@android:color/transparent"/> <!-- Color de fondo transparente -->
     <corners android:radius="4dp"/> <!-- Radio de los bordes redondeados -->
-<stroke android:width="1.5dp" android:color="@color/colorPrimary"/> <!-- Borde de 2dp de ancho y color negro -->
+<stroke android:width="1.5dp" android:color="@color/text"/> <!-- Borde de 2dp de ancho y color negro -->
 </shape>

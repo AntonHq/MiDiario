@@ -15,7 +15,7 @@
         android:layout_marginEnd="8dp"
         android:layout_toStartOf="@id/btnEditarNota"
         android:text="Título de la Nota"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/text"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -28,7 +28,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="4dp"
         android:text="Fecha"
-        android:textColor="@color/colorSecondary"
+        android:textColor="@color/text"
         android:textSize="14sp" />
 
     <!-- Breve descripción del contenido -->
@@ -42,7 +42,7 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:text="Contenido de la nota (breve)"
-        android:textColor="@color/colorSecondary"
+        android:textColor="@color/text"
         android:textSize="14sp" />
 
     <!-- Botón para editar la nota -->

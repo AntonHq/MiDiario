@@ -6,6 +6,7 @@
     android:background="@color/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     tools:context=".PagNueva">
 
     <!-- Save Button -->
@@ -14,7 +15,7 @@
         android:id="@+id/Logo"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/satisfy_regular"
         android:text="Nuevo Secreto...?"
         android:textAlignment="center"
