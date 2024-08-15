@@ -44,14 +44,13 @@ public class PagNueva extends AppCompatActivity {
     private static final int REQUEST_PERMISSION_CAMERA = 100;
     private ImageView imgVistaPrevia;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_pag_nueva);
 
-        //inicializar componentes
+        // Inicializar componentes
         fechaLbl = findViewById(R.id.lblFecha);
         estadoLbl = findViewById(R.id.lblEstado);
         tituloTxt = findViewById(R.id.txtTItulo);
@@ -59,6 +58,17 @@ public class PagNueva extends AppCompatActivity {
         guardarBtn = findViewById(R.id.btnGuardar);
         btnCamara = findViewById(R.id.btnCamara);
         imgVistaPrevia = findViewById(R.id.imgVistaPrevia);
+
+        // Recuperar la nota del Intent
+        Nota nota = (Nota) getIntent().getSerializableExtra("nota");
+
+        if (nota != null) {
+            // Rellenar los campos de la nota con los datos recibidos
+            tituloTxt.setText(nota.getTitulo());
+            contenidoTxt.setText(nota.getContenido());
+            // Guardar una referencia al documento en Firestore
+            notaRef = FirebaseFirestore.getInstance().collection("notas").document(nota.getId());
+        }
 
         // Configurar la fecha actual
         fechaLbl.setText(getCurrentDate());
@@ -122,7 +132,7 @@ public class PagNueva extends AppCompatActivity {
         }
     }
 
-    // Método para obtener la fecha actual
+    // Manejo del resultado de la cámara
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -140,7 +150,7 @@ public class PagNueva extends AppCompatActivity {
         return sdf.format(new Date());
     }
 
-    // Método para guardar la nota en la base de datos firestore
+    // Método para guardar la nota en la base de datos Firestore
     private void saveNote() {
         String titulo = tituloTxt.getText().toString();
         String contenido = contenidoTxt.getText().toString();
@@ -167,16 +177,15 @@ public class PagNueva extends AppCompatActivity {
                 .addOnSuccessListener(aVoid -> {
                     estadoLbl.setText("Cambios guardados");
                     Toast.makeText(PagNueva.this, "Nota guardada/actualizada con éxito", Toast.LENGTH_SHORT).show();
+
+                    // Volver a la actividad anterior con un resultado exitoso
+                    Intent resultIntent = new Intent();
+                    resultIntent.putExtra("nota_guardada", true);
+                    setResult(RESULT_OK, resultIntent);
+                    finish();
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(PagNueva.this, "Error al guardar la nota", Toast.LENGTH_SHORT).show();
                 });
-    }
-
-    // metodo para cargar la imagen
-    private void cargarImagen() {
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        intent.setType("image/");
-        startActivityForResult(intent.createChooser(intent, "Seleccione la aplicación"), 10);
     }
 }

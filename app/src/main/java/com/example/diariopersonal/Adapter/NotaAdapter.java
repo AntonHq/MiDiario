@@ -36,10 +36,16 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder
         Nota nota = notaList.get(position);
         holder.txtTituloNota.setText(nota.getTitulo());
         holder.txtFechaNota.setText(nota.getFecha());
-        holder.txtContenidoNota.setText(nota.getContenido());
+        // Mostrar solo una pequeña línea del contenido
+        holder.txtContenidoNota.setText(nota.getContenido().length() > 50
+                ? nota.getContenido().substring(0, 50) + "..."
+                : nota.getContenido());
 
         holder.btnEditarNota.setOnClickListener(v -> listener.onEditNotaClick(nota, position));
         holder.btnEliminarNota.setOnClickListener(v -> listener.onDeleteNotaClick(nota, position));
+
+        // Listener para detectar click en la nota completa (si quieres agregar esta funcionalidad)
+        holder.itemView.setOnClickListener(v -> listener.onEditNotaClick(nota, position));
     }
 
     @Override
