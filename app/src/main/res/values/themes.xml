@@ -1,7 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.DiarioPersonal" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/btnEliminar</item>
+        <item name="colorOnPrimary">@color/btnEditar</item>
+        <item name="colorSecondary">@color/btnCerrarSesion</item>
+        <item name="colorOnSecondary">@color/text</item>
+        <item name="background">@color/background</item>
+        <item name="color">@color/staticWhite</item>
+
     </style>
 
     <style name="Theme.DiarioPersonal" parent="Base.Theme.DiarioPersonal" />

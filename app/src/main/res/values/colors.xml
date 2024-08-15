@@ -3,18 +3,12 @@
     <color name="colorBtnPrincipal">#C5BD9C</color>
     <color name="colorBtnSecundario">#6B899D</color>
 
-    <color name="colorPrimary">#903B3B</color>
-    <color name="colorOnPrimary">#BD8C4C</color>
-    <color name="colorSecondary">#4D8A4F</color>
+    <color name="btnEliminar">#903B3B</color>
+    <color name="btnEditar">#BD8C4C</color>
+    <color name="btnCerrarSesion">#4D8A4F</color>
     <color name="background">#BFB89A</color>
-    <color name="colorAccent">#1B1B16</color>
-    <color name="colorOnSecondary">#D1C9C9</color>
-
-    <color name="crema">#BFB89A</color>
-    <color name="crema_dark">#1B1B16</color>
-
-    <color name="rojo_dark">#572424</color>
-    <color name="amarillo_dark">#755327</color>
-    <color name="verde_dark">#1D311E</color>
+    <color name="text">#1B1B16</color>
+    <color name="white">#D1C9C9</color>
+    <color name="staticWhite">#D3C7C7</color>
 
 </resources>

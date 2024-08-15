@@ -17,7 +17,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/satisfy_regular"
         android:text="Ajustes"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/text"
         android:textAlignment="center"
         android:textSize="54sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Correo:"
-                    android:textColor="@color/colorOnSecondary"
+                    android:textColor="@color/background"
                     android:textSize="16sp" />
 
                 <TextView
@@ -78,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:textColor="@color/colorOnSecondary"
+                    android:textColor="@color/background"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -95,7 +95,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Usuario:"
-                    android:textColor="@color/colorOnSecondary"
+                    android:textColor="@color/background"
                     android:textSize="16sp" />
 
                 <TextView
@@ -105,7 +105,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto_medium"
-                    android:textColor="@color/colorOnSecondary"
+                    android:textColor="@color/background"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -115,34 +115,36 @@
             android:id="@+id/btnEliminar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/btnEliminar"
             android:paddingVertical="12dp"
-            android:text="Eliminar Cuenta"
+            android:text="ELIMINAR CUENTA"
             android:textAllCaps="false"
-            android:textColor="@color/colorOnSecondary"
-            android:textSize="16sp" />
+            android:textColor="@color/staticWhite"
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/btnEditar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="12dp"
-            android:text="Editar Datos"
-            android:textColor="@color/colorOnSecondary"
-            android:backgroundTint="@color/colorOnPrimary"
-            android:textSize="16sp" />
+            android:layout_marginTop="1dp"
+            android:text="EDITAR DATOS"
+            android:textColor="@color/staticWhite"
+            android:backgroundTint="@color/btnEditar"
+            android:textSize="14.3dp" />
 
         <Button
             android:id="@+id/btnCerrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorSecondary"
-            android:text="Cerrar Sesion"
+            android:layout_marginTop="1dp"
+            android:backgroundTint="@color/btnCerrarSesion"
+            android:text="CERRAR SESIÓN"
             android:paddingVertical="12dp"
             android:textAllCaps="false"
-            android:textColor="@color/colorOnSecondary"
-            android:textSize="16sp" />
+            android:textColor="@color/staticWhite"
+            android:textSize="14sp" />
     </LinearLayout>
 
     <Switch
@@ -152,7 +154,7 @@
         android:fontFamily="@font/roboto_medium"
         android:paddingVertical="12dp"
         android:text="Cambiar tema"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/text"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"

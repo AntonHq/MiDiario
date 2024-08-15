@@ -1,12 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.DiarioPersonal.Dark" parent="Base.Theme.DiarioPersonal">
         <!-- Customize your dark theme here -->
-        <item name="colorPrimary">@color/rojo_dark</item>
-        <item name="colorOnPrimary">@color/amarillo_dark</item>
-        <item name="colorSecondary">@color/verde_dark</item>
-        <item name="background">@color/crema_dark</item>
-        <item name="colorAccent">@color/crema</item>
-        <item name="colorOnSecondary">@color/crema</item>
+        <item name="colorPrimary">@color/btnEliminar</item>
+        <item name="colorOnPrimary">@color/btnEditar</item>
+        <item name="colorSecondary">@color/btnCerrarSesion</item>
+        <item name="colorOnSecondary">@color/text</item>
+        <item name="background">@color/background</item>
+        <item name="color">@color/staticWhite</item>
 
         <!-- Other customizations for dark theme -->
     </style>
