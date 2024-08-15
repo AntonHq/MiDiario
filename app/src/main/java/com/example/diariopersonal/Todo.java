@@ -1,17 +1,16 @@
 package com.example.diariopersonal;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.diariopersonal.Adapter.NotaAdapter;
+import com.example.diariopersonal.Model.Nota;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -77,13 +76,21 @@ public class Todo extends AppCompatActivity {
     }
 
     private void deleteNota(Nota nota, int position) {
-        db.collection("notas").document(nota.getUserId())
-                .delete()
-                .addOnSuccessListener(aVoid -> {
-                    notaList.remove(position);
-                    notaAdapter.notifyItemRemoved(position);
-                    Toast.makeText(Todo.this, "Nota eliminada", Toast.LENGTH_SHORT).show();
+        new AlertDialog.Builder(this)
+                .setTitle("Eliminar Nota")
+                .setMessage("¿Estás seguro de que deseas eliminar esta nota?")
+                .setPositiveButton("Sí", (dialog, which) -> {
+                    // Proceder con la eliminación
+                    db.collection("notas").document(nota.getId())
+                            .delete()
+                            .addOnSuccessListener(aVoid -> {
+                                notaList.remove(position);
+                                notaAdapter.notifyItemRemoved(position);
+                                Toast.makeText(Todo.this, "Nota eliminada", Toast.LENGTH_SHORT).show();
+                            })
+                            .addOnFailureListener(e -> Toast.makeText(Todo.this, "Error al eliminar nota", Toast.LENGTH_SHORT).show());
                 })
-                .addOnFailureListener(e -> Toast.makeText(Todo.this, "Error al eliminar nota", Toast.LENGTH_SHORT).show());
+                .setNegativeButton("No", null)
+                .show();
     }
 }

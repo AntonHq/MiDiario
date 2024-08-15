@@ -1,16 +1,21 @@
-package com.example.diariopersonal;
+package com.example.diariopersonal.Model;
 
-public class Nota {
+import java.io.Serializable;
+
+public class Nota implements Serializable {
+    private String id;           // Nuevo campo para el ID del documento
     private String titulo;
     private String contenido;
     private String fecha;
-    private String userId;
+    private String userId;       // ID del usuario, si es necesario
 
-    // Constructor vacío
     public Nota() {
+        // Constructor vacío necesario para Firestore
     }
 
-    public Nota(String titulo, String contenido, String fecha, String userId) {
+    // Constructor con ID
+    public Nota(String id, String titulo, String contenido, String fecha, String userId) {
+        this.id = id;
         this.titulo = titulo;
         this.contenido = contenido;
         this.fecha = fecha;
@@ -18,6 +23,14 @@ public class Nota {
     }
 
     // Getters y Setters
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getTitulo() {
         return titulo;
     }

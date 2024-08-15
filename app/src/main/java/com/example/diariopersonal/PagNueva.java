@@ -4,12 +4,10 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ImageButton;
@@ -24,10 +22,8 @@ import androidx.core.content.ContextCompat;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
+import com.example.diariopersonal.Model.Nota;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -64,23 +60,6 @@ public class PagNueva extends AppCompatActivity {
         btnCamara = findViewById(R.id.btnCamara);
         imgVistaPrevia = findViewById(R.id.imgVistaPrevia);
 
-
-        // Listener para el botón de la cámara
-        btnCamara.setOnClickListener(view -> {
-            // Verificar permisos
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-                    != PackageManager.PERMISSION_GRANTED) {
-                // Solicitar permiso
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.CAMERA},
-                        REQUEST_PERMISSION_CAMERA);
-            } else {
-                // Permiso ya concedido, abrir la cámara
-                abrirCamara();
-            }
-        });
-
-
         // Configurar la fecha actual
         fechaLbl.setText(getCurrentDate());
 
@@ -109,30 +88,20 @@ public class PagNueva extends AppCompatActivity {
             public void afterTextChanged(Editable s) {}
         });
 
-        // Configurar el listener para guardar la nota
+        // Listener para el botón de la cámara
+        btnCamara.setOnClickListener(view -> {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, REQUEST_PERMISSION_CAMERA);
+            } else {
+                abrirCamara();
+            }
+        });
+
+        // Listener para guardar la nota
         guardarBtn.setOnClickListener(v -> saveNote());
     }
 
-    private void abrirCamara() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-        } else {
-            Toast.makeText(this, "No se pudo abrir la cámara", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            // Mostrar la imagen en el ImageView
-            imgVistaPrevia.setImageBitmap(imageBitmap);
-        }
-    }
-
+    // Método para solicitar permisos de cámara
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -144,6 +113,27 @@ public class PagNueva extends AppCompatActivity {
             }
         }
     }
+
+    // Método para abrir la cámara
+    private void abrirCamara() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+    // Método para obtener la fecha actual
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            // Mostrar la imagen en el ImageView
+            imgVistaPrevia.setImageBitmap(imageBitmap);
+        }
+    }
+
     // Método para obtener la fecha actual
     private String getCurrentDate() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
@@ -165,12 +155,14 @@ public class PagNueva extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         if (notaRef == null) {
-            // Crear una nueva nota
+            // Crear una nueva nota con un ID generado automáticamente
             notaRef = db.collection("notas").document();
         }
 
         // Crear o actualizar la nota en Firestore
-        Nota nota = new Nota(titulo, contenido, fecha, user != null ? user.getUid() : null);
+        String id = notaRef.getId(); // Obtener el ID del documento
+        Nota nota = new Nota(id, titulo, contenido, fecha, user != null ? user.getUid() : null);
+
         notaRef.set(nota)
                 .addOnSuccessListener(aVoid -> {
                     estadoLbl.setText("Cambios guardados");
@@ -181,7 +173,10 @@ public class PagNueva extends AppCompatActivity {
                 });
     }
 
-    private void addImage() {
-
+    // metodo para cargar la imagen
+    private void cargarImagen() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("image/");
+        startActivityForResult(intent.createChooser(intent, "Seleccione la aplicación"), 10);
     }
 }
