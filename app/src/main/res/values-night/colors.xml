@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorBtnPrincipal">#C5BD9C</color>
-    <color name="colorBtnSecundario">#6B899D</color>
+    <color name="colorBtnPrincipal">#9B9375</color>
+    <color name="colorBtnSecundario">#335871</color>
+    <color name="colorBtnTercero">#9B9375</color>
 
     <color name="btnEliminar">#572424</color>
     <color name="btnEditar">#755327</color>
     <color name="btnCerrarSesion">#1D311E</color>
     <color name="background">#1B1B16</color>
     <color name="text">#BFB89A</color>
+
     <color name="staticWhite">#D3C7C7</color>
+    <color name="variableBack">#BC000000</color>
+    <color name="BlackToWhite">#D3C7C7</color>
+    <color name="CremaToCremaDark">#A424221A</color>
+
 
 </resources>

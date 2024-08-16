@@ -2,6 +2,7 @@
 <resources>
     <color name="colorBtnPrincipal">#C5BD9C</color>
     <color name="colorBtnSecundario">#6B899D</color>
+    <color name="colorBtnTercero">#2A2A24</color>
 
     <color name="btnEliminar">#903B3B</color>
     <color name="btnEditar">#BD8C4C</color>
@@ -10,5 +11,10 @@
     <color name="text">#1B1B16</color>
     <color name="white">#D1C9C9</color>
     <color name="staticWhite">#D3C7C7</color>
+    <color name="variableBack">#00000000</color>
+    <color name="BlackToWhite">#1B1B16</color>
+    <color name="CremaToCremaDark">#A9FDFAEA</color>
+
+
 
 </resources>

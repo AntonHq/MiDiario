@@ -3,6 +3,7 @@ package com.example.diariopersonal;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,11 +32,23 @@ public class Todo extends AppCompatActivity {
     private FirebaseFirestore db;
     private FirebaseUser user;
     private ListenerRegistration notasListener; // Para manejar el listener de Firestore
+    private FloatingActionButton btnAgregarNota;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo);
+
+        btnAgregarNota = findViewById(R.id.btnAgregarNota);
+
+        // Ir a Agregar Nota
+        btnAgregarNota.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Todo.this, PagNueva.class);
+                startActivity(intent);
+            }
+        });
 
         recyclerViewNotas = findViewById(R.id.recyclerViewNotas);
         recyclerViewNotas.setLayoutManager(new LinearLayoutManager(this));

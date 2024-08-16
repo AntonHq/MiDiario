@@ -4,11 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:padding="16dp">
+    android:padding="24dp">
 
     <!-- Título de la Página -->
-
-    <!-- RecyclerView para mostrar la lista de notas -->
     <TextView
         android:id="@+id/todoTitle"
         android:layout_width="match_parent"
@@ -16,18 +14,22 @@
         android:fontFamily="@font/satisfy_regular"
         android:text="Mis Notas"
         android:textAlignment="center"
-        android:textSize="44sp" />
+        android:textSize="44sp"
+        android:layout_alignParentTop="true"/>
 
+    <!-- RecyclerView para mostrar la lista de notas -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewNotas"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@id/todoTitle"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="21dp"
         android:padding="8dp"
         android:scrollbars="vertical" />
 
+    <!-- Botón flotante para agregar una nueva nota -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAgregarNota"
         android:layout_width="wrap_content"

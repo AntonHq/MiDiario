@@ -6,53 +6,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
-    android:layout_gravity="center"
     android:background="@color/background"
     tools:context=".Settings">
 
-    <TextView
-        android:id="@+id/Logo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/satisfy_regular"
-        android:text="Ajustes"
-        android:textColor="@color/text"
-        android:textAlignment="center"
-        android:textSize="54sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+    <!-- Panel izquierdo: Información de usuario -->
+    <LinearLayout
+        android:id="@+id/linearLayoutLeft"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayoutRight"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/swtTema">
+        <TextView
+            android:id="@+id/Logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/satisfy_regular"
+            android:text="Ajustes"
+            android:textAlignment="center"
+            android:textColor="@color/text"
+            android:textSize="54sp"
+            android:layout_marginTop="16dp" />
 
         <ImageView
             android:id="@+id/imgvAvatar"
             android:layout_width="90dp"
             android:layout_height="90dp"
-            android:layout_marginVertical="15dp"
             android:layout_gravity="center"
+            android:layout_marginVertical="15dp"
             android:background="@drawable/back_user"
             android:contentDescription="avatar" />
 
         <LinearLayout
-            android:id="@+id/linearLayout3"
+            android:id="@+id/userInfoContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="13dp"
-            android:orientation="vertical"
             android:background="@drawable/back_datos"
-            >
+            android:orientation="vertical"
+            android:padding="13dp">
 
             <LinearLayout
                 android:id="@+id/llCorreo"
@@ -72,10 +67,10 @@
 
                 <TextView
                     android:id="@+id/lblCorreo"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:layout_weight="1"
                     android:fontFamily="@font/roboto_medium"
                     android:textColor="@color/background"
                     android:textSize="16sp" />
@@ -99,7 +94,7 @@
 
                 <TextView
                     android:id="@+id/lblUsuario"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
@@ -107,8 +102,31 @@
                     android:textColor="@color/background"
                     android:textSize="16sp" />
             </LinearLayout>
-
         </LinearLayout>
+    </LinearLayout>
+
+    <!-- Panel derecho: Ajustes y botones -->
+    <LinearLayout
+        android:id="@+id/linearLayoutRight"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        app:layout_constraintStart_toEndOf="@+id/linearLayoutLeft"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Switch
+            android:id="@+id/swtTema"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:fontFamily="@font/roboto_medium"
+            android:paddingVertical="12dp"
+            android:text="Cambiar tema"
+            android:textColor="@color/text"
+            android:textSize="16sp"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         <Button
             android:id="@+id/btnEliminar"
@@ -126,41 +144,24 @@
             android:id="@+id/btnEditar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/btnEditar"
             android:paddingVertical="10dp"
-            android:layout_marginTop="1dp"
             android:text="EDITAR DATOS"
             android:textColor="@color/staticWhite"
-            android:backgroundTint="@color/btnEditar"
-            android:textSize="14.3dp" />
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/btnCerrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="8dp"
             android:backgroundTint="@color/btnCerrarSesion"
-            android:text="CERRAR SESIÓN"
             android:paddingVertical="10dp"
+            android:text="CERRAR SESIÓN"
             android:textAllCaps="false"
             android:textColor="@color/staticWhite"
             android:textSize="14sp" />
     </LinearLayout>
-
-    <Switch
-        android:id="@+id/swtTema"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:fontFamily="@font/roboto_medium"
-        android:paddingVertical="12dp"
-        android:text="Cambiar tema"
-        android:textColor="@color/text"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Logo"
-        app:layout_constraintVertical_bias="0.452"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

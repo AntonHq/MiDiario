@@ -7,6 +7,9 @@
         <item name="colorOnSecondary">@color/text</item>
         <item name="background">@color/background</item>
         <item name="color">@color/staticWhite</item>
+        <item name="backgroundColor">@color/variableBack</item>
+        <item name="textFillColor">@color/BlackToWhite</item>
+        <item name="content">@color/colorBtnTercero</item>
 
     </style>
 

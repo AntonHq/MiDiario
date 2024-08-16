@@ -46,7 +46,7 @@
             android:textColor="@color/background"
             android:layout_marginBottom="3dp"
             android:fontFamily="@font/poppins_semibold"
-            android:backgroundTint="@color/text"
+            android:backgroundTint="@color/colorBtnTercero"
             android:text="PÁGINA NUEVA"
             android:textSize="18sp" />
 
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="69dp"
             android:layout_marginBottom="3dp"
-            android:textColor="@color/text"
+            android:textColor="@color/staticWhite"
             android:fontFamily="@font/poppins_semibold"
             android:backgroundTint="@color/colorBtnSecundario"
             android:text="TODAS MIS PÁGINAS"
@@ -67,7 +67,7 @@
             android:layout_height="69dp"
             android:textColor="@color/background"
             android:fontFamily="@font/poppins_semibold"
-            android:backgroundTint="@color/text"
+            android:backgroundTint="@color/colorBtnTercero"
             android:text="AJUSTES"
             android:textSize="17sp" />
 

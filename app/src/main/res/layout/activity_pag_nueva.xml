@@ -6,89 +6,104 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_light"
-    android:paddingHorizontal="30dp"
-    android:paddingVertical="14dp"
+
     tools:context=".PagNueva">
 
     <LinearLayout
-        android:id="@+id/linearLayout4"
+        android:paddingHorizontal="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:paddingVertical="20dp"
+        android:orientation="vertical"
 
-        <TextView
-            android:id="@+id/tvLogo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/satisfy_regular"
-            android:text="Página nueva."
-            android:textAlignment="center"
-            android:textColor="@color/text"
-            android:textSize="45sp" />
-
-        <EditText
-            android:id="@+id/txtTItulo"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginVertical="6dp"
-            android:background="@drawable/rounded_edittext_background"
-            android:gravity="center"
-            android:hint="Titulo"
-            android:maxLength="30"
-            android:singleLine="true"
-            android:textAlignment="center"
-            android:textColorHint="#615D5D"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+        android:gravity="center"
+        android:background="@drawable/back_trans">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/lblFecha"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="07/06/2024" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <TextView
-                android:id="@+id/lblEstado"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cambios no guardados" />
-
-        </LinearLayout>
-        <LinearLayout
+            android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="5dp">
+            android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtContenido"
+            <TextView
+                android:id="@+id/tvLogo"
                 android:layout_width="match_parent"
-                android:layout_height="558dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/satisfy_regular"
+                android:text="Página nueva."
+                android:textAlignment="center"
+                android:textColor="@color/text"
+                android:textSize="45sp" />
+
+            <EditText
+                android:id="@+id/txtTItulo"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginVertical="6dp"
                 android:background="@drawable/rounded_edittext_background"
-                android:gravity="start|top"
-                android:hint="Escribe aquí..."
-                android:scrollbars="vertical" />
+                android:gravity="center"
+                android:hint="Titulo"
+                android:maxLength="30"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textColor="@color/BlackToWhite"
+                android:textColorHint="@color/BlackToWhite"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/imgVistaPrevia"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/imagen_previa"
-                android:contentDescription="Vista previa de la imagen"
-                android:scaleType="centerCrop" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblFecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="07/06/2024" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/lblEstado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cambios no guardados" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtContenido"
+                    android:layout_width="match_parent"
+                    android:layout_height="558dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_edittext_background"
+                    android:textColor="@color/BlackToWhite"
+                    android:textColorHint="@color/BlackToWhite"
+                    android:textSize="15dp"
+                    android:gravity="start|top"
+                    android:hint="Escribe aquí..."
+                    android:scrollbars="vertical" />
+
+                <ImageView
+                    android:id="@+id/imgVistaPrevia"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/imagen_previa"
+                    android:contentDescription="Vista previa de la imagen"
+                    android:scaleType="centerCrop" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
@@ -98,7 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="27dp"
+        android:layout_marginBottom="48dp"
         android:contentDescription="Abrir Cámara"
         android:src="@drawable/camara"
         android:tint="@color/staticWhite"
@@ -120,5 +135,7 @@
         app:layout_constraintBottom_toTopOf="@id/btnCamara"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
