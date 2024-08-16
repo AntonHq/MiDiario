@@ -22,7 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class newUser extends AppCompatActivity {
+public class NewUser extends AppCompatActivity {
 
     // Inicializar la base de datos firestore
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -101,11 +101,11 @@ public class newUser extends AppCompatActivity {
                             db.collection("usuarios").document(user.getUid())
                                     .set(usuario)
                                     .addOnSuccessListener(aVoid -> {
-                                        Toast.makeText(newUser.this, "Usuario registrado",
+                                        Toast.makeText(NewUser.this, "Usuario registrado",
                                                 Toast.LENGTH_SHORT).show();
                                     })
                                     .addOnFailureListener(e -> {
-                                        Toast.makeText(newUser.this, "Error al registrar usuario",
+                                        Toast.makeText(NewUser.this, "Error al registrar usuario",
                                                 Toast.LENGTH_SHORT).show();
                                     });
                             updateUI(user);
@@ -126,7 +126,7 @@ public class newUser extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            Intent intent = new Intent(newUser.this, MainActivity.class);
+            Intent intent = new Intent(NewUser.this, MainActivity.class);
             startActivity(intent);
             finish();
         }

@@ -125,7 +125,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/google"
+                android:background="@drawable/back_datos"
                 android:contentDescription="google"
                 android:scaleType="fitCenter" />
 
