@@ -37,7 +37,7 @@
             android:name=".Menu"
             android:exported="true" />
         <activity
-            android:name=".newUser"
+            android:name=".NewUser"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
