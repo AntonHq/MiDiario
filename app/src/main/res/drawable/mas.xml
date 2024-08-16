@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Línea horizontal del signo de más -->
+    <path
+        android:fillColor="@color/CremaToCremaDark"
+        android:pathData="M27,54h54"
+        android:strokeWidth="8"
+        android:strokeColor="@color/CremaToCremaDark" />
+
+    <!-- Línea vertical del signo de más -->
+    <path
+        android:fillColor="@color/CremaToCremaDark"
+        android:pathData="M54,27v54"
+        android:strokeWidth="8"
+        android:strokeColor="@color/CremaToCremaDark" />
+
+</vector>
