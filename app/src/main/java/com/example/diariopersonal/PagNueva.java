@@ -24,6 +24,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.diariopersonal.Model.Nota;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -38,7 +39,7 @@ public class PagNueva extends AppCompatActivity {
     private TextView fechaLbl, estadoLbl;
     private EditText tituloTxt;
     private TextInputEditText contenidoTxt;
-    private ImageButton guardarBtn, btnCamara;
+    private FloatingActionButton guardarBtn, btnCamara;
     private DocumentReference notaRef; //Referencia al documento de la nota en Firestore
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int REQUEST_PERMISSION_CAMERA = 100;

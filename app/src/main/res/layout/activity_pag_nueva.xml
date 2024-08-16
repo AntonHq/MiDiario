@@ -2,129 +2,123 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:background="@color/background"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
+    android:background="@drawable/fondo_light"
+    android:paddingHorizontal="30dp"
+    android:paddingVertical="14dp"
     tools:context=".PagNueva">
 
-    <!-- Save Button -->
-
-    <TextView
-        android:id="@+id/Logo"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/satisfy_regular"
-        android:text="Nuevo Secreto...?"
-        android:textAlignment="center"
-        android:textColor="@color/text"
-        android:textSize="57sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:id="@+id/lblEstado"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginEnd="32dp"
-        android:text="Cambios no guardados"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/lblFecha" />
-
-    <TextView
-        android:id="@+id/lblFecha"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:text="07/06/2024"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTItulo" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtLayoutContenido"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="16dp"
-        app:boxBackgroundMode="none"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblEstado">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtContenido"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/rounded_edittext_background"
-            android:gravity="start|top"
-            android:hint="Escribe aquí..."
-            android:scrollbars="vertical" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <EditText
-        android:id="@+id/txtTItulo"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="20dp"
-        android:background="@drawable/rounded_edittext_background"
-        android:elegantTextHeight="false"
-        android:gravity="center"
-        android:hint="Titulo"
-        android:maxLength="30"
-        android:singleLine="true"
-        android:textAlignment="center"
-        android:textColorHint="#615D5D"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Logo" />
-
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.591"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLayoutContenido">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/btnCamara"
-            android:layout_width="66dp"
-            android:layout_height="66dp"
-            android:layout_marginEnd="20dp"
-            android:backgroundTint="@color/colorBtnSecundario"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/camara" />
+        <TextView
+            android:id="@+id/tvLogo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/satisfy_regular"
+            android:text="Página nueva."
+            android:textAlignment="center"
+            android:textColor="@color/text"
+            android:textSize="45sp" />
 
-        <ImageButton
-            android:id="@+id/btnGuardar"
-            android:layout_width="66dp"
-            android:layout_height="66dp"
-            android:backgroundTint="@color/staticWhite"
-            android:layout_marginEnd="27dp"
-            app:srcCompat="@drawable/guardar"
-            android:scaleType="centerCrop"
-            />
+        <EditText
+            android:id="@+id/txtTItulo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginVertical="6dp"
+            android:background="@drawable/rounded_edittext_background"
+            android:gravity="center"
+            android:hint="Titulo"
+            android:maxLength="30"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textColorHint="#615D5D"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/imgVistaPrevia"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lblFecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="07/06/2024" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/lblEstado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cambios no guardados" />
+
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/darker_gray"
-            android:contentDescription="Vista previa de la imagen" />
+            android:orientation="vertical"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtContenido"
+                android:layout_width="match_parent"
+                android:layout_height="558dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_edittext_background"
+                android:gravity="start|top"
+                android:hint="Escribe aquí..."
+                android:scrollbars="vertical" />
+
+            <ImageView
+                android:id="@+id/imgVistaPrevia"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/imagen_previa"
+                android:contentDescription="Vista previa de la imagen"
+                android:scaleType="centerCrop" />
+        </LinearLayout>
+
     </LinearLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnCamara"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="27dp"
+        android:contentDescription="Abrir Cámara"
+        android:src="@drawable/camara"
+        android:tint="@color/staticWhite"
+        app:backgroundTint="@color/colorBtnSecundario"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnGuardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="13dp"
+        android:contentDescription="Guardar"
+        android:src="@drawable/guardar"
+        android:tint="@color/text"
+        app:backgroundTint="@color/staticWhite"
+        app:layout_constraintBottom_toTopOf="@id/btnCamara"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
