@@ -10,7 +10,7 @@
     tools:context=".PagNueva">
 
     <LinearLayout
-        android:paddingHorizontal="30dp"
+        android:paddingHorizontal="45dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingVertical="20dp"

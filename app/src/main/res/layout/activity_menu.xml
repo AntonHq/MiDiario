@@ -34,8 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="19sp"
-            android:layout_marginBottom="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginBottom="35dp"
             android:fontFamily="@font/poppins_light"
             android:text="¡Bienvenido de vuelta!" />
 
@@ -44,7 +43,7 @@
             android:layout_width="229dp"
             android:layout_height="69dp"
             android:textColor="@color/background"
-            android:layout_marginBottom="3dp"
+            android:layout_marginBottom="8dp"
             android:fontFamily="@font/poppins_semibold"
             android:backgroundTint="@color/colorBtnTercero"
             android:text="PÁGINA NUEVA"
@@ -54,7 +53,7 @@
             android:id="@+id/btnTodo"
             android:layout_width="wrap_content"
             android:layout_height="69dp"
-            android:layout_marginBottom="3dp"
+            android:layout_marginBottom="8dp"
             android:textColor="@color/staticWhite"
             android:fontFamily="@font/poppins_semibold"
             android:backgroundTint="@color/colorBtnSecundario"
