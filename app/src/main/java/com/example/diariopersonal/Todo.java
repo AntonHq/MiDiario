@@ -19,6 +19,7 @@ import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Nullable;
@@ -70,6 +71,14 @@ public class Todo extends AppCompatActivity {
         }
     }
 
+
+
+    private void editarNota(Nota nota) {
+        Intent intent = new Intent(Todo.this, PagNueva.class);
+        intent.putExtra("nota", nota);
+        startActivity(intent);
+    }
+
     private void escucharCambiosNotas() {
         notasListener = db.collection("notas")
                 .whereEqualTo("userId", user.getUid())
@@ -79,20 +88,15 @@ public class Todo extends AppCompatActivity {
                         return;
                     }
 
-                    notaList.clear();
-                    for (QueryDocumentSnapshot doc : value) {
-                        Nota nota = doc.toObject(Nota.class);
-                        notaList.add(nota);
+                    if (value != null) {
+                        notaList.clear();
+                        for (QueryDocumentSnapshot doc : value) {
+                            Nota nota = doc.toObject(Nota.class);
+                            notaList.add(nota);
+                        }
+                        notaAdapter.notifyDataSetChanged();
                     }
-
-                    notaAdapter.notifyDataSetChanged();
                 });
-    }
-
-    private void editarNota(Nota nota) {
-        Intent intent = new Intent(Todo.this, PagNueva.class);
-        intent.putExtra("nota", nota);
-        startActivity(intent);
     }
 
     private void eliminarNota(Nota nota, int position) {
@@ -104,22 +108,38 @@ public class Todo extends AppCompatActivity {
                             .document(nota.getId())
                             .delete()
                             .addOnSuccessListener(aVoid -> {
-                                notaList.remove(position);
-                                notaAdapter.notifyItemRemoved(position);
+                                // Buscar la posición de la nota usando el ID, en lugar de confiar solo en la posición
+                                int posToRemove = -1;
+                                for (int i = 0; i < notaList.size(); i++) {
+                                    if (notaList.get(i).getId().equals(nota.getId())) {
+                                        posToRemove = i;
+                                        break;
+                                    }
+                                }
+
+                                // Si se encuentra la nota en la lista, eliminarla
+                                if (posToRemove != -1) {
+                                    notaList.remove(posToRemove);
+                                    notaAdapter.notifyItemRemoved(posToRemove);
+                                }
+                                Toast.makeText(Todo.this, "Nota eliminada", Toast.LENGTH_SHORT).show();
                             })
-                            .addOnFailureListener(e -> {
-                                Toast.makeText(Todo.this, "Error al eliminar nota: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                            });
+                            .addOnFailureListener(e ->
+                                    Toast.makeText(Todo.this, "Error al eliminar nota: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+                            );
                 })
                 .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
                 .show();
     }
+
+
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         if (notasListener != null) {
             notasListener.remove();
+            notasListener = null;
         }
     }
 }

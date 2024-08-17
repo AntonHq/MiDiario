@@ -172,7 +172,6 @@ public class PagNueva extends AppCompatActivity {
         }
 
         if (notaRef == null) {
-            // Crear una nueva nota con un ID generado automáticamente
             notaRef = FirebaseFirestore.getInstance().collection("notas").document();
         }
 
@@ -182,8 +181,14 @@ public class PagNueva extends AppCompatActivity {
         notaRef.set(nota)
                 .addOnSuccessListener(aVoid -> {
                     estadoLbl.setText("Cambios guardados");
-                    Toast.makeText(PagNueva.this, "Cambios Guardados Exitosamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PagNueva.this, "Nota guardada", Toast.LENGTH_SHORT).show();
+                    //redirigir a la actividad Todos
+                    Intent intent = new Intent(PagNueva.this, Todo.class);
+                    startActivity(intent);
+                    finish();
                 })
-                .addOnFailureListener(e -> Toast.makeText(PagNueva.this, "Error al guardar la nota", Toast.LENGTH_SHORT).show());
+                .addOnFailureListener(e -> {
+                    Toast.makeText(PagNueva.this, "Error al guardar la nota", Toast.LENGTH_SHORT).show();
+                });
     }
 }
