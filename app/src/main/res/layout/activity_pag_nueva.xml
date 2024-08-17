@@ -13,7 +13,7 @@
         android:paddingHorizontal="45dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingVertical="20dp"
+        android:paddingVertical="25dp"
         android:orientation="vertical"
 
         android:gravity="center"
@@ -25,15 +25,29 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvLogo"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/satisfy_regular"
-                android:text="Página nueva."
-                android:textAlignment="center"
-                android:textColor="@color/text"
-                android:textSize="45sp" />
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvLogo"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/satisfy_regular"
+                    android:text="Página nueva."
+                    android:textAlignment="center"
+                    android:textColor="@color/text"
+                    android:textSize="40sp" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/pencild"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/txtTItulo"
@@ -78,23 +92,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="5dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtContenido"
-                    android:layout_width="match_parent"
-                    android:layout_height="558dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/rounded_edittext_background"
-                    android:textColor="@color/BlackToWhite"
-                    android:textColorHint="@color/BlackToWhite"
-                    android:textSize="15dp"
-                    android:gravity="start|top"
-                    android:hint="Escribe aquí..."
-                    android:scrollbars="vertical" />
-
-                <ImageView
+                <!--
+  <ImageView
                     android:id="@+id/imgVistaPrevia"
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
@@ -102,6 +103,32 @@
                     android:background="@drawable/imagen_previa"
                     android:contentDescription="Vista previa de la imagen"
                     android:scaleType="centerCrop" />
+
+-->
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtContenido"
+                    android:layout_width="match_parent"
+                    android:layout_height="558dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_edittext_background"
+                    android:gravity="start|top"
+                    android:hint="Escribe aquí..."
+                    android:scrollbars="vertical"
+                    android:textColor="@color/BlackToWhite"
+                    android:textColorHint="@color/BlackToWhite"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/lblUbicacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textAlignment="center"
+                    android:text="Presiona el botón para agregar tu ubicación"
+                    android:background="@drawable/rounded_edittext_background"
+                    />
+
             </LinearLayout>
 
         </LinearLayout>
@@ -109,13 +136,27 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnGuardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Guardar"
+        android:src="@drawable/guardar"
+        app:backgroundTint="@color/CremaToCremaDarkNOTRANS"
+        app:layout_constraintBottom_toTopOf="@+id/abrirMapa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnCamara"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="48dp"
-        android:contentDescription="Abrir Cámara"
-        android:src="@drawable/camara"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="80dp"
+        android:contentDescription="Localizacion"
+        android:src="@drawable/brujula"
         android:tint="@color/staticWhite"
         app:backgroundTint="@color/colorBtnSecundario"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -123,18 +164,20 @@
         app:layout_constraintRight_toRightOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnGuardar"
+        android:id="@+id/abrirMapa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="13dp"
-        android:contentDescription="Guardar"
-        android:src="@drawable/guardar"
-        android:tint="@color/text"
-        app:backgroundTint="@color/staticWhite"
-        app:layout_constraintBottom_toTopOf="@id/btnCamara"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="Redirigir a Maps"
+        android:src="@drawable/maps"
+        android:tint="@color/staticWhite"
+        app:backgroundTint="@color/colorBtnSecundario"
+        app:layout_constraintBottom_toTopOf="@+id/btnCamara"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+
+
 
 
 

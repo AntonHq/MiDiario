@@ -8,114 +8,102 @@
     tools:context=".CambiarNombre">
 
     <ImageView
-            android:id="@+id/background_image"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/fondo2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+        android:id="@+id/background_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fondo2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <ScrollView
-            android:id="@+id/scroll_view"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:fillViewport="true"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="40dp"
+            android:background="@drawable/ll_back_login2">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:padding="40dp"
-                android:background="@drawable/ll_back_login2">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:fontFamily="@font/satisfy_regular"
+                    android:text="Cambiar datos"
+                    android:textAlignment="center"
+                    android:textColor="#DFD8BB"
+                    android:textSize="48sp" />
 
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/satisfy_regular"
-                        android:text="Cambiar datos"
-                        android:textAlignment="center"
-                        android:textColor="#DFD8BB"
-                        android:textSize="48sp" />
-
-                    <TextView
-                        android:id="@+id/textView5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Cambia tu nombre o contraseña."
-                        android:textAlignment="center"
-                        android:textColor="#DFD8BB"
-                        android:textSize="14sp" />
-
-                    <ImageView
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:layout_marginTop="20dp"
-                        android:src="@drawable/pencil"
-                        android:layout_gravity="center"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:text="¿Cuál es tu nuevo nombre?"
+                    android:textAlignment="center"
+                    android:textColor="#DFD8BB"
+                    android:textSize="14sp" />
 
-                    <EditText
-                        android:id="@+id/txtNombrec"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto_light"
-                        android:hint="Nombre"
-                        android:inputType="text"
-                        android:textColor="#D3C7C7"
-                        android:textColorHint="@color/staticWhite"
-                        android:textSize="15sp" />
-
-                    <EditText
-                        android:id="@+id/txtConfirmarNombrec"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="17dp"
-                        android:fontFamily="@font/roboto_light"
-                        android:hint="Contraseña nueva"
-                        android:inputType="textPassword"
-                        android:textColor="#D3C7C7"
-                        android:textColorHint="@color/staticWhite"
-                        android:textSize="15sp" />
-
-                    <Button
-                        android:id="@+id/btnGuardarc"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:backgroundTint="@color/colorBtnPrincipal"
-                        android:fontFamily="@font/roboto_medium"
-                        android:text="GUARDAR CAMBIOS"
-                        android:textColor="#1E1E1A"
-                        android:textSize="13dp" />
-
-
-                </LinearLayout>
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/pencil"
+                    android:layout_gravity="center"/>
 
             </LinearLayout>
-        </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/txtNombrec"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:ems="10"
+                    android:fontFamily="@font/roboto_light"
+                    android:hint="Ingresar nombre"
+                    android:inputType="text"
+                    android:textColor="#D3C7C7"
+                    android:textColorHint="@color/staticWhite"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/btnGuardarc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:backgroundTint="@color/colorBtnPrincipal"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="GUARDAR CAMBIOS"
+                    android:textColor="#1E1E1A"
+                    android:textSize="13dp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

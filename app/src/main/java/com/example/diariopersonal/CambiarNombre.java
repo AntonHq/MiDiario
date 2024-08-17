@@ -31,7 +31,6 @@ public class CambiarNombre extends AppCompatActivity {
 
         // Referenciar los elementos del layout
         txtNombrec = findViewById(R.id.txtNombrec);
-        txtConfirmarNombrec = findViewById(R.id.txtConfirmarNombrec);
         btnGuardarc = findViewById(R.id.btnGuardarc);
 
         // Configurar el botón de guardar
@@ -48,10 +47,6 @@ public class CambiarNombre extends AppCompatActivity {
     private boolean validarInput(String nuevoNombre, String confirmarNombre) {
         if (nuevoNombre.isEmpty()) {
             txtNombrec.setError("El nombre no puede estar vacío");
-            return false;
-        }
-        if (!nuevoNombre.equals(confirmarNombre)) {
-            txtConfirmarNombrec.setError("Los nombres no coinciden");
             return false;
         }
         return true;

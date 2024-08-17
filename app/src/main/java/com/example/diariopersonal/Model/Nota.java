@@ -9,6 +9,9 @@ public class Nota implements Serializable {
     private String fecha;
     private String userId;
     private String imageUrl;
+    private double latitude;
+    private double longitude;
+
 
     public Nota() {
         // Constructor vacío necesario para Firestore
@@ -71,5 +74,21 @@ public class Nota implements Serializable {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 }

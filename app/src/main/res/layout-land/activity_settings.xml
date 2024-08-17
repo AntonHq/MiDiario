@@ -60,7 +60,7 @@
                     android:layout_height="50dp"
                     android:fontFamily="@font/roboto_medium"
                     android:paddingVertical="12dp"
-                    android:text="Cambiar tema"
+                    android:text="Modo Oscuro"
                     android:textColor="@color/colorBtnPrincipal"
                     android:textSize="16sp"
                     tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -156,7 +156,7 @@
                     android:layout_height="wrap_content"
                     android:minWidth="165dp"
                     android:layout_marginTop="5dp"
-                    android:text="CAMBIAR DATOS"
+                    android:text="CAMBIAR NOMBRE DE USUARIO"
                     android:backgroundTint="@color/btnEditar"
                     android:textColor="@color/staticBlack"
                     android:textSize="13dp" />

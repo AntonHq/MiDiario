@@ -69,7 +69,6 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder
             txtContenidoNota = itemView.findViewById(R.id.txtContenidoNota);
             btnEditarNota = itemView.findViewById(R.id.btnEditarNota);
             btnEliminarNota = itemView.findViewById(R.id.btnEliminarNota);
-            imgNota = itemView.findViewById(R.id.imgVistaPrevia);
         }
     }
 
