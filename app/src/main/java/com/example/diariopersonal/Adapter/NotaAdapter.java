@@ -38,7 +38,7 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder
         holder.txtFechaNota.setText(nota.getFecha());
         // Mostrar solo una pequeña línea del contenido
         holder.txtContenidoNota.setText(nota.getContenido().length() > 50
-                ? nota.getContenido().substring(0, 50) + "..."
+                ? nota.getContenido().substring(0, 20) + "..."
                 : nota.getContenido());
 
         holder.btnEditarNota.setOnClickListener(v -> listener.onEditNotaClick(nota, position));

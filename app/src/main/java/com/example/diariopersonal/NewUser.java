@@ -2,18 +2,15 @@ package com.example.diariopersonal;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,12 +21,10 @@ import java.util.Map;
 
 public class NewUser extends AppCompatActivity {
 
-    // Inicializar la base de datos firestore
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-
     private FirebaseAuth mAuth;
-    private EditText correorTxt, contraseñarTxt, confiContraseñarTxt, usuariorTxt;
-    private TextView errorrLbl;
+    private FirebaseFirestore db;
+    private EditText correoTxt, contraseñaTxt, confiContraseñaTxt, usuarioTxt;
+    private TextView errorLbl;
     private Button guardarBtn;
 
     @Override
@@ -37,94 +32,96 @@ public class NewUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_user);
 
-        // Inicializar la instancia de Firebase Auth
+        // Inicializar Firebase Auth y Firestore
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         // Conectar las vistas
-        correorTxt = findViewById(R.id.txtCorreor);
-        contraseñarTxt = findViewById(R.id.txtContraseñar);
+        correoTxt = findViewById(R.id.txtCorreor);
+        contraseñaTxt = findViewById(R.id.txtContraseñar);
+        confiContraseñaTxt = findViewById(R.id.txtConfiContraseñar);
+        usuarioTxt = findViewById(R.id.txtUsuarior);
+        errorLbl = findViewById(R.id.lblErrorr);
         guardarBtn = findViewById(R.id.btnGuardar);
-        errorrLbl = findViewById(R.id.lblErrorr);
-        usuariorTxt = findViewById(R.id.txtUsuarior);
-        confiContraseñarTxt = findViewById(R.id.txtConfiContraseñar);
 
-        // ocultar el mensaje de error
-        errorrLbl.setVisibility(View.GONE);
+        // Ocultar el mensaje de error inicialmente
+        errorLbl.setVisibility(View.GONE);
 
         // Configurar el listener del botón de registro
-       guardarBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String correo = correorTxt.getText().toString();
-                String contraseña = contraseñarTxt.getText().toString();
-                String confiContraseña = confiContraseñarTxt.getText().toString();
-                String usuario = usuariorTxt.getText().toString();
+        guardarBtn.setOnClickListener(v -> {
+            String correo = correoTxt.getText().toString().trim();
+            String contraseña = contraseñaTxt.getText().toString().trim();
+            String confiContraseña = confiContraseñaTxt.getText().toString().trim();
+            String usuario = usuarioTxt.getText().toString().trim();
 
-                if (correo.isEmpty() || contraseña.isEmpty() || confiContraseña.isEmpty() || usuario.isEmpty()) {
-                    errorrLbl.setText("Por favor llene todos los campos");
-                    errorrLbl.setVisibility(View.VISIBLE);
-                } else if (!correo.contains("@") || !correo.contains(".")) {
-                    errorrLbl.setText("Correo inválido");
-                    errorrLbl.setVisibility(View.VISIBLE);
-                } else if (contraseña.length() < 6) {
-                    errorrLbl.setText("La contraseña debe tener al menos 6 caracteres");
-                    errorrLbl.setVisibility(View.VISIBLE);
-                } else if (!contraseña.equals(confiContraseña)) {
-                    errorrLbl.setText("Las contraseñas no coinciden");
-                    errorrLbl.setVisibility(View.VISIBLE);
-                } else {
-                    // Crear cuenta
-                    createAccount(correo, contraseña, usuario);
-                    errorrLbl.setVisibility(View.GONE);
-                }
+            if (validarCampos(correo, contraseña, confiContraseña, usuario)) {
+                errorLbl.setVisibility(View.GONE);
+                crearCuenta(correo, contraseña, usuario);
             }
         });
-}
+    }
 
-    // Método para crear una cuenta
-    private void createAccount(String email, String password, String username){
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        // Verificar si la tarea fue exitosa
-                        if (task.isSuccessful()) {
-                            // Obtener el usuario actual
-                            FirebaseUser user = mAuth.getCurrentUser();
+    private boolean validarCampos(String correo, String contraseña, String confiContraseña, String usuario) {
+        if (correo.isEmpty() || contraseña.isEmpty() || confiContraseña.isEmpty() || usuario.isEmpty()) {
+            mostrarError("Por favor llene todos los campos");
+            return false;
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
+            mostrarError("Correo inválido");
+            return false;
+        } else if (contraseña.length() < 6) {
+            mostrarError("La contraseña debe tener al menos 6 caracteres");
+            return false;
+        } else if (!contraseña.equals(confiContraseña)) {
+            mostrarError("Las contraseñas no coinciden");
+            return false;
+        }
+        return true;
+    }
 
-                            // Crear un nuevo usuario en la base de datos
-                            Map<String, Object> usuario = new HashMap<>();
-                            usuario.put("usuario", username);
-                            usuario.put("correo", email);
+    private void mostrarError(String mensaje) {
+        errorLbl.setText(mensaje);
+        errorLbl.setVisibility(View.VISIBLE);
+    }
 
-                            // Añadir el usuario a la base de datos
-                            db.collection("usuarios").document(user.getUid())
-                                    .set(usuario)
-                                    .addOnSuccessListener(aVoid -> {
-                                        Toast.makeText(NewUser.this, "Usuario registrado",
-                                                Toast.LENGTH_SHORT).show();
-                                    })
-                                    .addOnFailureListener(e -> {
-                                        Toast.makeText(NewUser.this, "Error al registrar usuario",
-                                                Toast.LENGTH_SHORT).show();
-                                    });
-                            updateUI(user);
+    private void crearCuenta(String correo, String contraseña, String usuario) {
+        mAuth.createUserWithEmailAndPassword(correo, contraseña)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        if (user != null) {
+                            guardarUsuarioEnFirestore(user.getUid(), usuario, correo);
+                            actualizarUI(user);
                         }
-                        else {
-                            // Verificar si el correo ya está registrado
-                            if (task.getException() instanceof FirebaseAuthUserCollisionException) {
-                                errorrLbl.setText("El correo ya está registrado");
-                                errorrLbl.setVisibility(View.VISIBLE);
-                            } else {
-                                errorrLbl.setText("Error al registrar usuario");
-                                errorrLbl.setVisibility(View.VISIBLE);
-                            }
-                        }
+                    } else {
+                        manejarErrorDeRegistro(task.getException());
                     }
                 });
     }
 
-    private void updateUI(FirebaseUser user) {
+    private void guardarUsuarioEnFirestore(String userId, String usuario, String correo) {
+        Map<String, Object> usuarioData = new HashMap<>();
+        usuarioData.put("usuario", usuario);
+        usuarioData.put("correo", correo);
+
+        db.collection("usuarios").document(userId)
+                .set(usuarioData)
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(NewUser.this, "Usuario registrado", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(NewUser.this, "Error al registrar usuario", Toast.LENGTH_SHORT).show();
+                });
+    }
+
+    private void manejarErrorDeRegistro(Exception exception) {
+        if (exception instanceof FirebaseAuthUserCollisionException) {
+            mostrarError("El correo ya está registrado");
+        } else {
+            mostrarError("Error al registrar usuario");
+        }
+    }
+
+    private void actualizarUI(FirebaseUser user) {
         if (user != null) {
             Intent intent = new Intent(NewUser.this, MainActivity.class);
             startActivity(intent);

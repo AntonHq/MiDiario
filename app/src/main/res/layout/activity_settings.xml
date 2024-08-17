@@ -123,15 +123,15 @@
             android:textSize="14sp" />
 
         <Button
-            android:id="@+id/btnEditar"
+            android:id="@+id/btnCambiarDatos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="10dp"
             android:layout_marginTop="1dp"
-            android:text="EDITAR DATOS"
-            android:textColor="@color/staticWhite"
             android:backgroundTint="@color/btnEditar"
-            android:textSize="14.3dp" />
+            android:paddingVertical="10dp"
+            android:text="CAMBIAR DATOS"
+            android:textColor="@color/staticWhite"
+            android:textSize="14dp" />
 
         <Button
             android:id="@+id/btnCerrar"

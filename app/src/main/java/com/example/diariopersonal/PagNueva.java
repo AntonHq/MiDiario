@@ -10,7 +10,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ImageButton;
 
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,7 +39,7 @@ public class PagNueva extends AppCompatActivity {
     private EditText tituloTxt;
     private TextInputEditText contenidoTxt;
     private FloatingActionButton guardarBtn, btnCamara;
-    private DocumentReference notaRef; //Referencia al documento de la nota en Firestore
+    private DocumentReference notaRef; // Referencia al documento de la nota en Firestore
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int REQUEST_PERMISSION_CAMERA = 100;
     private ImageView imgVistaPrevia;
@@ -75,7 +74,7 @@ public class PagNueva extends AppCompatActivity {
         fechaLbl.setText(getCurrentDate());
 
         // Detectar cambios en los campos de texto
-        tituloTxt.addTextChangedListener(new TextWatcher() {
+        TextWatcher textWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
@@ -83,21 +82,13 @@ public class PagNueva extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 estadoLbl.setText("Cambios no guardados");
             }
-            @Override
-            public void afterTextChanged(Editable s) {}
-        });
-
-        contenidoTxt.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                estadoLbl.setText("Cambios no guardados");
-            }
-            @Override
             public void afterTextChanged(Editable s) {}
-        });
+        };
+
+        tituloTxt.addTextChangedListener(textWatcher);
+        contenidoTxt.addTextChangedListener(textWatcher);
 
         // Listener para el botón de la cámara
         btnCamara.setOnClickListener(view -> {
@@ -137,11 +128,13 @@ public class PagNueva extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK && data != null) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             // Mostrar la imagen en el ImageView
             imgVistaPrevia.setImageBitmap(imageBitmap);
+        } else if (resultCode != RESULT_OK) {
+            Toast.makeText(this, "No se capturó ninguna imagen", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -163,16 +156,13 @@ public class PagNueva extends AppCompatActivity {
             return;
         }
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-
         if (notaRef == null) {
             // Crear una nueva nota con un ID generado automáticamente
-            notaRef = db.collection("notas").document();
+            notaRef = FirebaseFirestore.getInstance().collection("notas").document();
         }
 
         // Crear o actualizar la nota en Firestore
-        String id = notaRef.getId(); // Obtener el ID del documento
-        Nota nota = new Nota(id, titulo, contenido, fecha, user != null ? user.getUid() : null);
+        Nota nota = new Nota(notaRef.getId(), titulo, contenido, fecha, user != null ? user.getUid() : null);
 
         notaRef.set(nota)
                 .addOnSuccessListener(aVoid -> {
@@ -185,8 +175,6 @@ public class PagNueva extends AppCompatActivity {
                     setResult(RESULT_OK, resultIntent);
                     finish();
                 })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(PagNueva.this, "Error al guardar la nota", Toast.LENGTH_SHORT).show();
-                });
+                .addOnFailureListener(e -> Toast.makeText(PagNueva.this, "Error al guardar la nota", Toast.LENGTH_SHORT).show());
     }
 }
