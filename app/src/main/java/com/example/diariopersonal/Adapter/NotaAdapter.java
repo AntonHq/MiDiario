@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,7 +39,7 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder
         holder.txtFechaNota.setText(nota.getFecha());
         // Mostrar solo una pequeña línea del contenido
         holder.txtContenidoNota.setText(nota.getContenido().length() > 50
-                ? nota.getContenido().substring(0, 20) + "..."
+                ? nota.getContenido().substring(0, 10) + "..."
                 : nota.getContenido());
 
         holder.btnEditarNota.setOnClickListener(v -> listener.onEditNotaClick(nota, position));
@@ -58,6 +59,9 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder
         TextView txtTituloNota, txtFechaNota, txtContenidoNota;
         ImageButton btnEditarNota, btnEliminarNota;
 
+        ImageView imgNota;
+
+
         public NotaViewHolder(@NonNull View itemView) {
             super(itemView);
             txtTituloNota = itemView.findViewById(R.id.txtTituloNota);
@@ -65,6 +69,7 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder
             txtContenidoNota = itemView.findViewById(R.id.txtContenidoNota);
             btnEditarNota = itemView.findViewById(R.id.btnEditarNota);
             btnEliminarNota = itemView.findViewById(R.id.btnEliminarNota);
+            imgNota = itemView.findViewById(R.id.imgVistaPrevia);
         }
     }
 

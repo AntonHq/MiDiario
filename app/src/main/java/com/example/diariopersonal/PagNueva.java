@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -30,6 +32,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -39,10 +42,11 @@ public class PagNueva extends AppCompatActivity {
     private EditText tituloTxt;
     private TextInputEditText contenidoTxt;
     private FloatingActionButton guardarBtn, btnCamara;
-    private DocumentReference notaRef; // Referencia al documento de la nota en Firestore
+    private DocumentReference notaRef;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int REQUEST_PERMISSION_CAMERA = 100;
     private ImageView imgVistaPrevia;
+    private String imageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +70,7 @@ public class PagNueva extends AppCompatActivity {
             // Rellenar los campos de la nota con los datos recibidos
             tituloTxt.setText(nota.getTitulo());
             contenidoTxt.setText(nota.getContenido());
+            imageUrl = nota.getImageUrl();
             // Guardar una referencia al documento en Firestore
             notaRef = FirebaseFirestore.getInstance().collection("notas").document(nota.getId());
         }
@@ -138,7 +143,17 @@ public class PagNueva extends AppCompatActivity {
         }
     }
 
+    // Método para guardar la imagen y obtener su URL o ruta
+    @NonNull
+    private String guardarImagen(@NonNull Bitmap bitmap) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, "Title", null);
+        return Uri.parse(path).toString();
+    }
+
     // Método para obtener la fecha actual
+    @NonNull
     private String getCurrentDate() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
         return sdf.format(new Date());
@@ -162,18 +177,12 @@ public class PagNueva extends AppCompatActivity {
         }
 
         // Crear o actualizar la nota en Firestore
-        Nota nota = new Nota(notaRef.getId(), titulo, contenido, fecha, user != null ? user.getUid() : null);
+        Nota nota = new Nota(notaRef.getId(), titulo, contenido, fecha, user != null ? user.getUid() : null, imageUrl);
 
         notaRef.set(nota)
                 .addOnSuccessListener(aVoid -> {
                     estadoLbl.setText("Cambios guardados");
-                    Toast.makeText(PagNueva.this, "Nota guardada/actualizada con éxito", Toast.LENGTH_SHORT).show();
-
-                    // Volver a la actividad anterior con un resultado exitoso
-                    Intent resultIntent = new Intent();
-                    resultIntent.putExtra("nota_guardada", true);
-                    setResult(RESULT_OK, resultIntent);
-                    finish();
+                    Toast.makeText(PagNueva.this, "Cambios Guardados Exitosamente", Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> Toast.makeText(PagNueva.this, "Error al guardar la nota", Toast.LENGTH_SHORT).show());
     }

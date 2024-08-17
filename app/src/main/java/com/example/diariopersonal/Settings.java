@@ -85,10 +85,6 @@ public class Settings extends AppCompatActivity {
             correoLbl.setText(user.getEmail());
         }
 
-        cambiarDatosBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(Settings.this, CambiarDatos.class);
-            startActivity(intent);
-        });
         cerrarBtn.setOnClickListener(v -> mostrarDialogoConfirmacion("Cerrar sesión", "¿Estás seguro que deseas cerrar sesión?", this::cerrarSesion));
         eliminarBtn.setOnClickListener(v -> mostrarDialogoConfirmacion("Eliminar cuenta", "¿Estás seguro que deseas eliminar tu cuenta?", this::eliminarCuenta));
     }

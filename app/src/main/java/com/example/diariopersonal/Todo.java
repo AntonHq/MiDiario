@@ -73,21 +73,19 @@ public class Todo extends AppCompatActivity {
     private void escucharCambiosNotas() {
         notasListener = db.collection("notas")
                 .whereEqualTo("userId", user.getUid())
-                .addSnapshotListener((queryDocumentSnapshots, e) -> {
-                    if (e != null) {
-                        Toast.makeText(Todo.this, "Error al escuchar cambios: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                .addSnapshotListener((value, error) -> {
+                    if (error != null) {
+                        Toast.makeText(Todo.this, "Error al obtener notas: " + error.getMessage(), Toast.LENGTH_SHORT).show();
                         return;
                     }
 
-                    if (queryDocumentSnapshots != null) {
-                        notaList.clear();
-                        for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
-                            Nota nota = document.toObject(Nota.class);
-                            nota.setId(document.getId());
-                            notaList.add(nota);
-                        }
-                        notaAdapter.notifyDataSetChanged();
+                    notaList.clear();
+                    for (QueryDocumentSnapshot doc : value) {
+                        Nota nota = doc.toObject(Nota.class);
+                        notaList.add(nota);
                     }
+
+                    notaAdapter.notifyDataSetChanged();
                 });
     }
 
@@ -106,7 +104,6 @@ public class Todo extends AppCompatActivity {
                             .document(nota.getId())
                             .delete()
                             .addOnSuccessListener(aVoid -> {
-                                Toast.makeText(Todo.this, "Nota eliminada", Toast.LENGTH_SHORT).show();
                                 notaList.remove(position);
                                 notaAdapter.notifyItemRemoved(position);
                             })
