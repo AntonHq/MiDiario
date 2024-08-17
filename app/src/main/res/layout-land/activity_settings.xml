@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".newUser"
+    tools:context=".NewUser"
     >
 
     <ImageView
@@ -54,7 +54,7 @@
                     android:textColor="@color/colorBtnPrincipal"
                     android:textSize="55sp" />
 
-                <Switch
+                <com.google.android.material.materialswitch.MaterialSwitch
                     android:id="@+id/swtTema"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"

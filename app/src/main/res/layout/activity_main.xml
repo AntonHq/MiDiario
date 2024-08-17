@@ -72,6 +72,7 @@
                 android:fontFamily="@font/roboto_light"
                 android:hint="Correo Electronico"
                 android:inputType="textEmailAddress"
+                android:minHeight="48dp"
                 android:textColor="#D3C7C7"
                 android:textColorHint="@color/staticWhite"
                 android:textSize="15sp" />
@@ -85,6 +86,7 @@
                 android:fontFamily="@font/roboto_light"
                 android:hint="Contraseña"
                 android:inputType="textPassword"
+                android:minHeight="48dp"
                 android:textColor="#D3C7C7"
                 android:textColorHint="@color/staticWhite"
                 android:textSize="15sp" />
@@ -107,7 +109,8 @@
                 android:fontFamily="@font/roboto_medium"
                 android:text="INGRESAR"
                 android:textColor="#1E1E1A"
-                android:textSize="13dp" />
+                android:textSize="13dp"
+                tools:ignore="TextSizeCheck" />
 
             <Button
                 android:id="@+id/btnRegistrarse"
@@ -118,7 +121,8 @@
                 android:fontFamily="@font/roboto_medium"
                 android:text="REGISTRARSE"
                 android:textColor="#1E1E1A"
-                android:textSize="13dp" />
+                android:textSize="13dp"
+                tools:ignore="TextSizeCheck" />
 
             <ImageButton
                 android:id="@+id/btnGoogle"
@@ -127,7 +131,10 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/google"
                 android:contentDescription="google"
-                android:scaleType="fitCenter" />
+                android:scaleType="fitCenter"
+                tools:ignore="TouchTargetSizeCheck" />
+
+
 
         </LinearLayout>
     </ScrollView>
