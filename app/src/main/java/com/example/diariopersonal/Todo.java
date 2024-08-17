@@ -2,6 +2,7 @@ package com.example.diariopersonal;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.ListenerRegistration;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
@@ -80,23 +82,31 @@ public class Todo extends AppCompatActivity {
     }
 
     private void escucharCambiosNotas() {
-        notasListener = db.collection("notas")
+        // Referencia a la colección "notas" con filtrado y ordenamiento
+        Query query = db.collection("notas")
                 .whereEqualTo("userId", user.getUid())
-                .addSnapshotListener((value, error) -> {
-                    if (error != null) {
-                        Toast.makeText(Todo.this, "Error al obtener notas: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-                        return;
-                    }
+                .orderBy("fecha", Query.Direction.DESCENDING);
 
-                    if (value != null) {
-                        notaList.clear();
-                        for (QueryDocumentSnapshot doc : value) {
-                            Nota nota = doc.toObject(Nota.class);
-                            notaList.add(nota);
-                        }
-                        notaAdapter.notifyDataSetChanged();
-                    }
-                });
+        // Agregar un listener a la consulta
+        query.addSnapshotListener((value, error) -> {
+            if (error != null) {
+                Log.e("Firestore", "Error al obtener notas: " + error.getMessage(), error);
+                // Mostrar un mensaje de error más detallado al usuario
+                Toast.makeText(Todo.this, "Ocurrió un error al cargar tus notas. Por favor, verifica tu conexión a internet e inténtalo nuevamente.", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            // Si no hay errores, actualizar la lista de notas
+            if (value != null) {
+                notaList.clear();
+                for (QueryDocumentSnapshot doc : value) {
+                    Nota nota = doc.toObject(Nota.class);
+                    nota.setId(doc.getId());
+                    notaList.add(nota);
+                }
+                notaAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
     private void eliminarNota(Nota nota, int position) {
