@@ -151,7 +151,7 @@
                     android:textSize="13sp" />
 
                 <Button
-                    android:id="@+id/btnCambiarDatos"
+                    android:id="@+id/btnCambiarNombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minWidth="165dp"

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context=".CambiarDatos">
+    tools:context=".CambiarNombre">
 
     <ImageView
         android:id="@+id/background_image"
@@ -118,37 +118,40 @@
         </LinearLayout>
 
 
-
         <Button
-            android:id="@+id/btnEliminar"
+            android:id="@+id/btnCambiarNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="55dp"
-            android:backgroundTint="@color/btnEliminar"
-            android:text="ELIMINAR CUENTA"
-            android:textAllCaps="false"
-            android:textColor="@color/colorBtnTercero"
-            android:textSize="13sp" />
-
-        <Button
-            android:id="@+id/btnCambiarDatos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="CAMBIAR DATOS"
             android:backgroundTint="@color/btnEditar"
+            android:text="CAMBIAR NOMBRE USUARIO"
             android:textColor="@color/staticBlack"
-            android:textSize="13dp" />
+            android:textSize="13dp"
+            tools:ignore="TextSizeCheck" />
 
         <Button
             android:id="@+id/btnCerrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="CERRAR SESIÓN"
             android:backgroundTint="@color/colorBtnSecundario"
+            android:text="CERRAR SESIÓN"
             android:textColor="@color/staticBlack"
-            android:textSize="13dp" />
+            android:textSize="13dp"
+            tools:ignore="TextSizeCheck" />
+
+        <Button
+            android:id="@+id/btnEliminar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/btnEliminar"
+            android:text="ELIMINAR CUENTA"
+            android:textAllCaps="false"
+            android:textColor="@color/colorBtnTercero"
+            android:textSize="13sp" />
+
+
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
