@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.view.WindowCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -19,14 +20,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 
 import androidx.appcompat.app.AppCompatDelegate;
-import android.widget.Switch;
 
 public class Settings extends AppCompatActivity {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     public TextView usuarioLbl, correoLbl;
     public Button cerrarBtn, eliminarBtn, cambiarDatosBtn;
-    private Switch swtTema;
+    public SwitchCompat swtTema;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

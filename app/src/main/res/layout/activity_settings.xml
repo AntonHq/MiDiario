@@ -37,13 +37,13 @@
             android:textColor="@color/colorBtnPrincipal"
             android:textSize="48sp" />
 
-        <Switch
+        <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/swtTema"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:fontFamily="@font/roboto_medium"
             android:paddingVertical="12dp"
-            android:text="Cambiar tema"
+            android:text="Modo Oscuro"
             android:textColor="@color/colorBtnPrincipal"
             android:textSize="16sp"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
