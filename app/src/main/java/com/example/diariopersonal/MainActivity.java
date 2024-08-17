@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private EditText correoTxt, contraseñaTxt;
     private TextView errorLbl;
-    private Button ingresarBtn, registrarseBtn;
+    private Button ingresarBtn, registrarseBtn, OlvidarContraseñaBtn;
     private ImageButton googleBtn;
     private FirebaseAuth mAuth;
 
@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         ingresarBtn = findViewById(R.id.btnIngresar);
         registrarseBtn = findViewById(R.id.btnRegistrarse);
         googleBtn = findViewById(R.id.btnGoogle);
+        OlvidarContraseñaBtn = findViewById(R.id.btnOlvidarContrasena);
         errorLbl = findViewById(R.id.lblError);
 
         // Ocultar el mensaje de error
@@ -99,6 +100,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 signInWithGoogle();
             }
+        });
+
+        OlvidarContraseñaBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, RecuperarContrasena.class);
+            startActivity(intent);
         });
     }
 
