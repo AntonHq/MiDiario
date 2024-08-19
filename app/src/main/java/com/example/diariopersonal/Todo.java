@@ -91,8 +91,7 @@ public class Todo extends AppCompatActivity {
         query.addSnapshotListener((value, error) -> {
             if (error != null) {
                 Log.e("Firestore", "Error al obtener notas: " + error.getMessage(), error);
-                // Mostrar un mensaje de error más detallado al usuario
-                Toast.makeText(Todo.this, "Ocurrió un error al cargar tus notas. Por favor, verifica tu conexión a internet e inténtalo nuevamente.", Toast.LENGTH_LONG).show();
+
                 return;
             }
 

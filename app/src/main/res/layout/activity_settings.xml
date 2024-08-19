@@ -75,17 +75,17 @@
                     android:fontFamily="@font/roboto_medium"
                     android:text="Correo:"
                     android:textColor="@color/text"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/lblCorreo"
                     android:layout_width="wrap_content"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_weight="1"
                     android:fontFamily="@font/roboto_medium"
                     android:textColor="@color/text"
-                    android:textSize="16sp" />
+                    android:textSize="13sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -102,7 +102,7 @@
                     android:fontFamily="@font/roboto_medium"
                     android:text="Usuario:"
                     android:textColor="@color/text"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/lblUsuario"
@@ -112,7 +112,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto_medium"
                     android:textColor="@color/text"
-                    android:textSize="16sp" />
+                    android:textSize="13sp" />
             </LinearLayout>
 
         </LinearLayout>
