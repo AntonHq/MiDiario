@@ -155,7 +155,10 @@ public class PagNueva extends AppCompatActivity {
         notaRef.set(nota)
                 .addOnSuccessListener(aVoid -> {
                     estadoLbl.setText("Cambios guardados");
-
+                    Toast.makeText(PagNueva.this, "Nota guardada", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(PagNueva.this, Todo.class);
+                    startActivity(intent);
+                    finish();
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(PagNueva.this, "Error al guardar la nota", Toast.LENGTH_SHORT).show();
