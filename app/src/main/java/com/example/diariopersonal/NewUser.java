@@ -42,7 +42,7 @@ public class NewUser extends AppCompatActivity {
         confiContraseñaTxt = findViewById(R.id.txtConfiContraseñar);
         usuarioTxt = findViewById(R.id.txtUsuarior);
         errorLbl = findViewById(R.id.lblErrorr);
-        guardarBtn = findViewById(R.id.btnGuardar);
+        guardarBtn = findViewById(R.id.btnRecuperar);
 
         // Ocultar el mensaje de error inicialmente
         errorLbl.setVisibility(View.GONE);
@@ -74,6 +74,15 @@ public class NewUser extends AppCompatActivity {
         } else if (!contraseña.equals(confiContraseña)) {
             mostrarError("Las contraseñas no coinciden");
             return false;
+        } else if (usuario.length() < 3) {
+            mostrarError("El usuario debe tener al menos 3 caracteres");
+            return false;
+        } else if (usuario.length() > 20) {
+            mostrarError("El usuario debe tener menos de 15 caracteres");
+            return false;
+        } else if (!usuario.matches("[a-zA-Z0-9]+")) {
+            mostrarError("El usuario solo puede contener letras y números");
+            return false;
         }
         return true;
     }
@@ -90,7 +99,9 @@ public class NewUser extends AppCompatActivity {
                         FirebaseUser user = mAuth.getCurrentUser();
                         if (user != null) {
                             guardarUsuarioEnFirestore(user.getUid(), usuario, correo);
-                            actualizarUI(user);
+                            Intent intent = new Intent(NewUser.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
                         }
                     } else {
                         manejarErrorDeRegistro(task.getException());
@@ -118,14 +129,6 @@ public class NewUser extends AppCompatActivity {
             mostrarError("El correo ya está registrado");
         } else {
             mostrarError("Error al registrar usuario");
-        }
-    }
-
-    private void actualizarUI(FirebaseUser user) {
-        if (user != null) {
-            Intent intent = new Intent(NewUser.this, MainActivity.class);
-            startActivity(intent);
-            finish();
         }
     }
 }

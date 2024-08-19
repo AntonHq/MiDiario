@@ -3,7 +3,6 @@ package com.example.diariopersonal;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -19,7 +18,6 @@ import com.example.diariopersonal.Model.Nota;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -35,7 +33,6 @@ public class PagNueva extends AppCompatActivity {
     private EditText tituloTxt, contenidoTxt;
     private FloatingActionButton guardarBtn, btnCamara, abrirMapa;
     private DocumentReference notaRef;
-    private String imageUrl;
     private FusedLocationProviderClient fusedLocationClient;
     private double latitude, longitude;
 
@@ -49,7 +46,7 @@ public class PagNueva extends AppCompatActivity {
         estadoLbl = findViewById(R.id.lblEstado);
         tituloTxt = findViewById(R.id.txtTItulo);
         contenidoTxt = findViewById(R.id.txtContenido);
-        guardarBtn = findViewById(R.id.btnGuardar);
+        guardarBtn = findViewById(R.id.btnRecuperar);
         btnCamara = findViewById(R.id.btnCamara);
         abrirMapa = findViewById(R.id.abrirMapa);
         lblUbicacion = findViewById(R.id.lblUbicacion);
@@ -68,7 +65,6 @@ public class PagNueva extends AppCompatActivity {
         if (nota != null) {
             tituloTxt.setText(nota.getTitulo());
             contenidoTxt.setText(nota.getContenido());
-            imageUrl = nota.getImageUrl();
             latitude = nota.getLatitude();
             longitude = nota.getLongitude();
             if (latitude != 0.0 && longitude != 0.0) {
@@ -76,7 +72,6 @@ public class PagNueva extends AppCompatActivity {
             }
             notaRef = FirebaseFirestore.getInstance().collection("notas").document(nota.getId());
         }
-
 
         fechaLbl.setText(getCurrentDate());
 
@@ -115,14 +110,7 @@ public class PagNueva extends AppCompatActivity {
         if (latitude != 0.0 && longitude != 0.0) {
             Uri locationUri = Uri.parse("geo:" + latitude + "," + longitude + "?q=" + latitude + "," + longitude);
             Intent mapIntent = new Intent(Intent.ACTION_VIEW, locationUri);
-            mapIntent.setPackage("com.google.android.apps.maps");
-            if (mapIntent.resolveActivity(getPackageManager()) != null) {
-                startActivity(mapIntent);
-            } else {
-                Toast.makeText(this, "Google Maps no está instalado", Toast.LENGTH_SHORT).show();
-            }
-        } else {
-            Toast.makeText(this, "Ubicación no disponible", Toast.LENGTH_SHORT).show();
+            startActivity(mapIntent);
         }
     }
 
@@ -145,7 +133,6 @@ public class PagNueva extends AppCompatActivity {
         return sdf.format(new Date());
     }
 
-
     private void saveNote() {
         String titulo = tituloTxt.getText().toString();
         String contenido = contenidoTxt.getText().toString();
@@ -161,21 +148,17 @@ public class PagNueva extends AppCompatActivity {
             notaRef = FirebaseFirestore.getInstance().collection("notas").document();
         }
 
-        Nota nota = new Nota(notaRef.getId(), titulo, contenido, fecha, user != null ? user.getUid() : null, imageUrl);
+        Nota nota = new Nota(notaRef.getId(), titulo, contenido, fecha, user != null ? user.getUid() : null);
         nota.setLatitude(latitude);
         nota.setLongitude(longitude);
 
         notaRef.set(nota)
                 .addOnSuccessListener(aVoid -> {
                     estadoLbl.setText("Cambios guardados");
-                    Toast.makeText(PagNueva.this, "Nota guardada", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(PagNueva.this, Todo.class);
-                    startActivity(intent);
-                    finish();
+
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(PagNueva.this, "Error al guardar la nota", Toast.LENGTH_SHORT).show();
                 });
     }
-
 }

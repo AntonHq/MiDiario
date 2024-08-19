@@ -44,6 +44,7 @@ public class Todo extends AppCompatActivity {
         btnAgregarNota.setOnClickListener(view -> {
             Intent intent = new Intent(Todo.this, PagNueva.class);
             startActivity(intent);
+            finish();
         });
 
         recyclerViewNotas = findViewById(R.id.recyclerViewNotas);

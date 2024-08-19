@@ -59,8 +59,6 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder
         TextView txtTituloNota, txtFechaNota, txtContenidoNota;
         ImageButton btnEditarNota, btnEliminarNota;
 
-        ImageView imgNota;
-
 
         public NotaViewHolder(@NonNull View itemView) {
             super(itemView);

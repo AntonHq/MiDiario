@@ -15,7 +15,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class CambiarNombre extends AppCompatActivity {
 
     private EditText txtNombrec;
-    private EditText txtConfirmarNombrec;
     private Button btnGuardarc;
     private FirebaseFirestore db;
     private FirebaseUser user;
@@ -30,23 +29,30 @@ public class CambiarNombre extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
 
         // Referenciar los elementos del layout
-        txtNombrec = findViewById(R.id.txtNombrec);
-        btnGuardarc = findViewById(R.id.btnGuardarc);
+        txtNombrec = findViewById(R.id.txtCorreo);
+        btnGuardarc = findViewById(R.id.btnRecuperar);
 
         // Configurar el botón de guardar
         btnGuardarc.setOnClickListener(view -> {
             String nuevoNombre = txtNombrec.getText().toString().trim();
-            String confirmarNombre = txtConfirmarNombrec.getText().toString().trim();
-
-            if (validarInput(nuevoNombre, confirmarNombre)) {
+            if (validarInput(nuevoNombre)) {
                 guardarNombreEnFirestore(nuevoNombre);
             }
         });
     }
 
-    private boolean validarInput(String nuevoNombre, String confirmarNombre) {
+    private boolean validarInput(String nuevoNombre) {
         if (nuevoNombre.isEmpty()) {
             txtNombrec.setError("El nombre no puede estar vacío");
+            return false;
+        }else if (nuevoNombre.length() < 3) {
+            txtNombrec.setError("El nombre debe tener al menos 3 caracteres");
+            return false;
+        }else if (nuevoNombre.length() > 20) {
+            txtNombrec.setError("El nombre debe tener menos de 15 caracteres");
+            return false;
+        } else if (!nuevoNombre.matches("[a-zA-Z ]+")) {
+            txtNombrec.setError("El nombre solo puede contener letras y espacios");
             return false;
         }
         return true;

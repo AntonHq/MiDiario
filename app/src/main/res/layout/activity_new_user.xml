@@ -127,7 +127,7 @@
                 android:textColor="#BD1D1D" />
 
             <Button
-                android:id="@+id/btnGuardar"
+                android:id="@+id/btnRecuperar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="13dp"

@@ -78,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
                 } else if (!correo.contains("@") || !correo.contains(".")){
                     errorLbl.setText("Correo inválido");
                     errorLbl.setVisibility(View.VISIBLE);
+                } else if (contraseña.length() < 6) {
+                    errorLbl.setText("La contraseña debe tener al menos 6 caracteres");
+                    errorLbl.setVisibility(View.VISIBLE);
                 } else {
                     // Lógica para iniciar sesión con correo y contraseña
                     signIn(correo, contraseña);

@@ -8,23 +8,20 @@ public class Nota implements Serializable {
     private String contenido;
     private String fecha;
     private String userId;
-    private String imageUrl;
     private double latitude;
     private double longitude;
-
 
     public Nota() {
         // Constructor vacío necesario para Firestore
     }
 
     // Constructor con ID
-    public Nota(String id, String titulo, String contenido, String fecha, String userId, String imageUrl) {
+    public Nota(String id, String titulo, String contenido, String fecha, String userId) {
         this.id = id;
         this.titulo = titulo;
         this.contenido = contenido;
         this.fecha = fecha;
         this.userId = userId;
-        this.imageUrl = imageUrl;
     }
 
     // Getters y Setters
@@ -66,14 +63,6 @@ public class Nota implements Serializable {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
     }
 
     public double getLatitude() {

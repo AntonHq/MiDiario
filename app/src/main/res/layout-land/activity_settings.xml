@@ -154,23 +154,25 @@
                     android:id="@+id/btnCambiarNombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minWidth="165dp"
                     android:layout_marginTop="5dp"
-                    android:text="CAMBIAR NOMBRE DE USUARIO"
                     android:backgroundTint="@color/btnEditar"
+                    android:minWidth="165dp"
+                    android:text="CAMBIAR NOMBRE DE USUARIO"
                     android:textColor="@color/staticBlack"
-                    android:textSize="13dp" />
+                    android:textSize="13dp"
+                    tools:ignore="TextSizeCheck" />
 
                 <Button
                     android:id="@+id/btnCerrar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minWidth="165dp"
                     android:layout_marginTop="5dp"
-                    android:text="CERRAR SESIÓN"
                     android:backgroundTint="@color/colorBtnSecundario"
+                    android:minWidth="165dp"
+                    android:text="CERRAR SESIÓN"
                     android:textColor="@color/staticBlack"
-                    android:textSize="13dp" />
+                    android:textSize="13dp"
+                    tools:ignore="TextSizeCheck" />
             </LinearLayout>
 
         </LinearLayout>
