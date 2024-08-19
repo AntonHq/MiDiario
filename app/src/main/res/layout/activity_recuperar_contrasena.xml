@@ -63,7 +63,7 @@
             android:ems="10"
             android:fontFamily="@font/roboto_light"
             android:hint="Correo Electronico"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:textColor="#D3C7C7"
             android:textColorHint="@color/staticWhite"
@@ -77,7 +77,7 @@
             android:layout_marginTop="30dp"
             android:backgroundTint="@color/colorBtnPrincipal"
             android:fontFamily="@font/roboto_medium"
-            android:text="Enviar Correo "
+            android:text="ENVIAR CORREO"
             android:textColor="#1E1E1A"
             android:textSize="13dp"
             tools:ignore="TextSizeCheck" />

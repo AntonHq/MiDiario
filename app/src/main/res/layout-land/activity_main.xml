@@ -70,6 +70,8 @@
                     android:layout_gravity="center"/>
 
 
+
+
             </LinearLayout>
 
             <LinearLayout
@@ -114,29 +116,37 @@
                     android:textColor="#BD1D1D"
                     android:textSize="14sp" />
 
-                <Button
-                    android:id="@+id/btnIngresar"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:backgroundTint="@color/colorBtnPrincipal"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="INGRESAR"
-                    android:textColor="#1E1E1A"
-                    android:textSize="13dp"
-                    tools:ignore="TextSizeCheck" />
-
-                <Button
-                    android:id="@+id/btnRegistrarse"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
                     android:layout_marginTop="10dp"
-                    android:backgroundTint="@color/colorBtnSecundario"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="REGISTRARSE"
-                    android:textColor="#1E1E1A"
-                    android:textSize="13dp"
-                    tools:ignore="TextSizeCheck" />
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/btnIngresar"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/colorBtnPrincipal"
+                        android:layout_marginRight="15dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="INGRESAR"
+                        android:textColor="#1E1E1A"
+                        android:textSize="13dp"
+                        tools:ignore="TextSizeCheck" />
+
+                    <Button
+                        android:id="@+id/btnRegistrarse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/colorBtnSecundario"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="REGISTRARSE"
+                        android:textColor="#1E1E1A"
+                        android:textSize="13dp"
+                        tools:ignore="TextSizeCheck" />
+
+                </LinearLayout>
 
                 <ImageButton
                     android:id="@+id/btnGoogle"
@@ -147,6 +157,18 @@
                     android:contentDescription="google"
                     android:scaleType="fitCenter"
                     tools:ignore="TouchTargetSizeCheck" />
+
+                <Button
+                    android:id="@+id/btnOlvidarContrasena"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¿Olvidaste tu contraseña?"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:background="?attr/selectableItemBackground"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:layout_marginTop="10dp"/>
+
             </LinearLayout>
 
         </LinearLayout>
